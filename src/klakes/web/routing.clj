@@ -1,12 +1,13 @@
 (ns klakes.web.routing
-  (:require [compojure.core                  :as url]
-            [compojure.route                 :as route]
-            [clojure.java.io                 :as io]))
+  (:require [compojure.core   :as url]
+            [compojure.route  :as route]
+            [selmer.parser    :as parser]
+            [clojure.java.io  :as io]))
+
+(parser/set-resource-path!  (clojure.java.io/resource "html"))
 
 (defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "Klakes"})
+  (parser/render-file "home.html" {}))
 
 (defn routes []
   (url/routes
