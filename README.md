@@ -6,6 +6,10 @@ Klakes stands for Knowledge Lakes.
 
 The application targets organizations interested in mapping their knowledge in consistent "lakes" of information.
 
+To use it:
+
+    $ java -jar klakes.jar
+
 ## License
 
 Copyright © 2019 Hildeberto Mendonca

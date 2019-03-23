@@ -2,16 +2,26 @@
   (:require [compojure.core   :as url]
             [compojure.route  :as route]
             [selmer.parser    :as parser]
-            [clojure.java.io  :as io]))
+            [clojure.java.io  :as io]
+            [klakes.server    :as server]))
 
 (parser/set-resource-path!  (clojure.java.io/resource "html"))
 
-(defn handler [request]
+(defn home [request]
   (parser/render-file "home.html" {}))
+
+(defn content [request]
+  (parser/render-file "content.html" {}))
+
+(defn quit [request]
+  (server/stop)
+  (str "Bye!"))
 
 (defn routes []
   (url/routes
-    (url/GET "/" request (handler request))))
+    (url/GET "/"               request (home request))
+    (url/GET "/content/:label" request (content request))
+    (url/GET "/quit"           request (quit request))))
 
 (url/defroutes router
   (routes)
