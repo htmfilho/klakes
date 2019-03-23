@@ -1,14 +1,14 @@
 (ns klakes.app
   (:use     [org.httpkit.server  :only  [run-server]])
-  (:require [clojure.java.browse :refer [browse-url]])
+  (:require [clojure.java.browse :refer [browse-url]]
+            [compojure.handler   :as handler]
+            [klakes.web.routing  :as routing])
   (:gen-class))
 
-(defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "Klakes"})
+
 
 (defn -main [& [args]]
-  (browse-url "http://localhost:8080")
-  (println "To stop Klakes, type Ctrl+C.")
-  (run-server handler {:port 8080}))
+  (println "Klakes is available at http://localhost:8080. To stop it, type Ctrl+C.")
+  (let [router (handler/site #'routing/router)]
+    (browse-url "http://localhost:3000")
+    (run-server router {:port 3000})))
