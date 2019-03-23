@@ -1,6 +1,49 @@
 {% extends "layout.html" %}
+
 {% block content %}
   <div class="content">
-    Welcome
+    <div id="knetwork"></div>
   </div>
+{% endblock %}
+
+{% block page-scripts %}
+  {% script "/js/vis.min.js" %}
+  <script type="text/javascript">
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id: 1, shape: 'box', group: 0, label: 'Business'},
+        {id: 2, shape: 'box', group: 1, label: 'Information Technology'},
+        {id: 3, shape: 'box', group: 2, label: 'Product'},
+        {id: 4, shape: 'box', group: 3, label: 'Lifecycle'},
+        {id: 5, shape: 'box', group: 4, label: 'Organization'}
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {from: 1, to: 3, arrows:'to', font: {align: 'top'}, label: 'enables'},
+        {from: 2, to: 3, arrows:'to', font: {align: 'top'}, label: 'enables'},
+        {from: 4, to: 3, arrows:'to', font: {align: 'top'}, label: 'evolves'},
+        {from: 5, to: 4, arrows:'to', font: {align: 'top'}, label: 'runs'}
+    ]);
+
+    // create a network
+    var container = document.getElementById('knetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {
+      nodes: {
+        shadow:true
+      },
+      edges: {
+        shadow:true
+      }
+    };
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+  </script>
 {% endblock %}
