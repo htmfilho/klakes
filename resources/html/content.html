@@ -11,19 +11,19 @@
   <script type="text/javascript">
     // create an array with nodes
     var nodes = new vis.DataSet([
-        {id: 1, shape: 'box', group: 0, label: 'Business'},
-        {id: 2, shape: 'box', group: 1, label: 'Information Technology'},
-        {id: 3, shape: 'box', group: 2, label: 'Product'},
-        {id: 4, shape: 'box', group: 3, label: 'Lifecycle'},
-        {id: 5, shape: 'box', group: 4, label: 'Organization'}
+        {id: 6, shape: 'box', group: 0, label: 'Technology'},
+        {id: 7, shape: 'box', group: 1, label: 'Platform'},
+        {id: 8, shape: 'box', group: 2, label: 'Design'},
+        {id: 9, shape: 'box', group: 3, label: 'Code'},
+        {id: 10, shape: 'box', group: 4, label: 'Runtime'}
     ]);
 
     // create an array with edges
     var edges = new vis.DataSet([
-        {from: 1, to: 3, arrows:'to', font: {align: 'top'}, label: 'enables'},
-        {from: 2, to: 3, arrows:'to', font: {align: 'top'}, label: 'enables'},
-        {from: 4, to: 3, arrows:'to', font: {align: 'top'}, label: 'evolves'},
-        {from: 5, to: 4, arrows:'to', font: {align: 'top'}, label: 'runs'}
+        {from: 6, to: 7, arrows:'to', font: {align: 'top'}, label: 'enables'},
+        {from: 7, to: 8, arrows:'to', font: {align: 'top'}, label: 'enables'},
+        {from: 8, to: 9, arrows:'to', font: {align: 'top'}, label: 'enables'},
+        {from: 9, to: 10, arrows:'to', font: {align: 'top'}, label: 'enables'}
     ]);
 
     // create a network
@@ -35,6 +35,9 @@
         edges: edges
     };
     var options = {
+      autoResize: true,
+      height: '100%',
+      width: '100%',
       nodes: {
         shadow:true
       },
