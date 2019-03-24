@@ -1,0 +1,10 @@
+{:up   
+  ["create table concept_content (
+    id      integer primary key autoincrement,
+    concept integer not null,
+    content integer not null,
+    constraint fk_concept_content foreign key (concept) references concept (id) on delete cascade,
+    constraint fk_content_concept foreign key (content) references content (id) on delete cascade
+  )"]
+ :down 
+  ["drop table concept_content"]}

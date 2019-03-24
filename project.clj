@@ -5,11 +5,18 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
             
   :dependencies [[org.clojure/clojure       "1.9.0" ]
-                 [ring/ring-core            "1.6.3" ]
-                 [http-kit                  "2.3.0" ]
+                 
+                 ; Web dependencies
                  [javax.servlet/servlet-api "2.5"   ]
+                 [ring/ring-core            "1.6.3" ]
+                 [http-kit                  "2.3.0" ]                 
                  [compojure                 "1.6.1" ]
-                 [selmer                    "1.12.6"]]
+                 [selmer                    "1.12.6"]
+
+                 ; Database dependencies
+                 [org.clojure/java.jdbc     "0.7.0" ]
+                 [org.xerial/sqlite-jdbc    "3.23.1"]
+                 [ragtime                   "0.7.1" ]]
   
   :min-lein-version "2.0.0"
   :main ^:skip-aot klakes.app
