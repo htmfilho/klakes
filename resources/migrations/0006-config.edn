@@ -1,0 +1,8 @@
+{:up   
+  ["create table configuration (
+    id    integer primary key autoincrement,
+    key   text    not null,
+    value text    not null
+  )"]
+ :down 
+  ["drop table configuration"]}
