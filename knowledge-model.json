@@ -1,0 +1,220 @@
+{
+    "concepts": [
+        {
+            "label": "business",
+            "name": "Business",
+            "definition": ""
+        },
+        {
+            "label": "case",
+            "name": "Case",
+            "definition": ""
+        },
+        {
+            "label": "code",
+            "name": "Code",
+            "definition": ""
+        },
+        {
+            "label": "definition",
+            "name": "Definition",
+            "definition": ""
+        },
+        {
+            "label": "design",
+            "name": "Design",
+            "definition": ""
+        },
+        {
+            "label": "it",
+            "name": "Information Technology",
+            "definition": ""
+        },
+        {
+            "label": "lifecycle",
+            "name": "Lifecycle",
+            "definition": ""
+        },
+        {
+            "label": "organization",
+            "name": "Organization",
+            "definition": ""
+        },
+        {
+            "label": "platform",
+            "name": "Platform",
+            "definition": ""
+        },
+        {
+            "label": "process",
+            "name": "Process",
+            "definition": ""
+        },
+        {
+            "label": "product",
+            "name": "Product",
+            "definition": ""
+        },
+        {
+            "label": "rule",
+            "name": "Rule",
+            "definition": ""
+        },
+        {
+            "label": "runtime",
+            "name": "Runtime",
+            "definition": ""
+        },
+        {
+            "label": "technology",
+            "name": "Technology",
+            "definition": ""
+        }
+    ],
+    "predicates": [
+        {
+            "verb": "bound"
+        },
+        {
+            "verb": "compose"
+        },
+        {
+            "verb": "define"
+        },
+        {
+            "verb": "enable"
+        },
+        {
+            "verb": "improve"
+        },
+        {
+            "verb": "inform"
+        },
+        {
+            "verb": "contain"
+        },
+        {
+            "verb": "is_detailed_by"
+        },
+        {
+            "verb": "run"
+        }
+    ],
+    "triples": [
+        {
+            "subject": "business",
+            "predicate": "define",
+            "object": "product"
+        },
+        {
+            "subject": "it",
+            "predicate": "define",
+            "object": "product"
+        },
+        {
+            "subject": "lifecycle",
+            "predicate": "improve",
+            "object": "product"
+        },
+        {
+            "subject": "organization",
+            "predicate": "run",
+            "object": "lifecycle"
+        },
+        {
+            "subject": "it",
+            "predicate": "run",
+            "object": "lifecycle"
+        },
+        {
+            "subject": "it",
+            "predicate": "run",
+            "object": "organization"
+        },
+        {
+            "subject": "business",
+            "predicate": "contain",
+            "object": "definition"
+        },
+        {
+            "subject": "business",
+            "predicate": "contain",
+            "object": "process"
+        },
+        {
+            "subject": "business",
+            "predicate": "contain",
+            "object": "rule"
+        },
+        {
+            "subject": "business",
+            "predicate": "contain",
+            "object": "case"
+        },
+        {
+            "subject": "definition",
+            "predicate": "compose",
+            "object": "process"
+        },
+        {
+            "subject": "process",
+            "predicate": "is_detailed_by",
+            "object": "rule"
+        },
+        {
+            "subject": "rule",
+            "predicate": "bound",
+            "object": "case"
+        },
+        {
+            "subject": "case",
+            "predicate": "improve",
+            "object": "definition"
+        },
+        {
+            "subject": "it",
+            "predicate": "contain",
+            "object": "technology"
+        },
+        {
+            "subject": "it",
+            "predicate": "contain",
+            "object": "platform"
+        },
+        {
+            "subject": "it",
+            "predicate": "contain",
+            "object": "design"
+        },
+        {
+            "subject": "it",
+            "predicate": "contain",
+            "object": "code"
+        },
+        {
+            "subject": "it",
+            "predicate": "contain",
+            "object": "runtime"
+        },
+        {
+            "subject": "technology",
+            "predicate": "enable",
+            "object": "platform"
+        },
+        {
+            "subject": "platform",
+            "predicate": "enable",
+            "object": "design"
+        },
+        {
+            "subject": "design",
+            "predicate": "enable",
+            "object": "code"
+        },
+        {
+            "subject": "code",
+            "predicate": "enable",
+            "object": "runtime"
+        }
+    ]
+}
