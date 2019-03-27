@@ -6,11 +6,14 @@
 (def config
   {:classname   "org.sqlite.JDBC"
    :subprotocol "sqlite"
-   :subname     "cache.kb"})
+   :subname     "cache.db"})
 
 (def migration-config
-  {:datastore  (migration/sql-database {:connection-uri "jdbc:sqlite:cache.kb"})
-   :migrations (migration/load-resources "migrations")})
+  {:migrations (migration/load-resources "migrations")
+   :datastore  (migration/sql-database {:connection-uri (str "jdbc:" 
+                                                             (config :subprotocol) 
+                                                             ":" 
+                                                             (config :subname))})})
 
 (defn migrate []
   (repl/migrate migration-config))
