@@ -8,7 +8,7 @@
 profiles.clj
 pom.xml
 pom.xml.asc
-cache.kb
+cache.db
 confluence.json
 bootstrap.css
 bootstrap.css.map

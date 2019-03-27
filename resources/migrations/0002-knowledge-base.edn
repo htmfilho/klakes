@@ -1,8 +1,8 @@
 {:up   
   ["create table predicate (
     id          integer primary key autoincrement,
-    name        text not null,
-    description text
+    verb        text    unique,
+    influence   text
   )"]
  :down 
   ["drop table predicate"]}

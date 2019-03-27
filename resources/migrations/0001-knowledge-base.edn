@@ -2,8 +2,8 @@
   ["create table concept (
     id          integer primary key autoincrement,
     name        text    not null,      
-    label       text    not null,
-    description text
+    label       text    unique,
+    definition  text
   )"]
  :down 
   ["drop table concept"]}
