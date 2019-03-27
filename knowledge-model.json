@@ -73,31 +73,36 @@
     ],
     "predicates": [
         {
-            "verb": "bound"
+            "verb": "bound",
+            "influence": ""
         },
         {
-            "verb": "compose"
+            "verb": "compose",
+            "influence": ""
         },
         {
-            "verb": "define"
+            "verb": "define",
+            "influence": ""
         },
         {
-            "verb": "enable"
+            "verb": "enable",
+            "influence": ""
         },
         {
-            "verb": "improve"
+            "verb": "improve",
+            "influence": ""
         },
         {
-            "verb": "inform"
+            "verb": "contain",
+            "influence": ""
         },
         {
-            "verb": "contain"
+            "verb": "is_detailed_by",
+            "influence": ""
         },
         {
-            "verb": "is_detailed_by"
-        },
-        {
-            "verb": "run"
+            "verb": "run",
+            "influence": ""
         }
     ],
     "triples": [
