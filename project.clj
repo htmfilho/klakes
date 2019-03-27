@@ -16,6 +16,7 @@
                  ; Database dependencies
                  [org.clojure/java.jdbc     "0.7.0" ]
                  [org.xerial/sqlite-jdbc    "3.23.1"]
+                 [com.layerware/hugsql      "0.4.9" ]
                  [ragtime                   "0.8.0" ]]
   
   :min-lein-version "2.0.0"
