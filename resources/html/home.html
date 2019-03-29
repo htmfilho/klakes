@@ -2,7 +2,9 @@
 
 {% block content %}
   <div class="content">
-    <div id="knetwork"></div>
+    {% if model-exists %}
+      <div id="knetwork"></div>
+    {% endif %}
   </div>
 {% endblock %}
 
