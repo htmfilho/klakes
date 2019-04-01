@@ -12,6 +12,7 @@
                  [http-kit                  "2.3.0" ]                 
                  [compojure                 "1.6.1" ]
                  [selmer                    "1.12.6"]
+                 [org.clojure/data.json     "0.2.6" ]
 
                  ; Database dependencies
                  [org.clojure/java.jdbc     "0.7.0" ]
@@ -22,6 +23,5 @@
   :min-lein-version "2.0.0"
   :main ^:skip-aot klakes.app
   
-  :profiles {:uberjar {:omit-source true
-                       :aot :all
+  :profiles {:uberjar {:aot :all
                        :uberjar-name "klakes.jar"}})

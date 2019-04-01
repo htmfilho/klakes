@@ -1,17 +1,14 @@
 (ns klakes.web.routing
-  (:require [compojure.core   :as url]
-            [compojure.route  :as route]
-            [selmer.parser    :as parser]
-            [clojure.java.io  :as io]
-            [klakes.server    :as server]))
+  (:require [compojure.core                    :as url]
+            [compojure.route                   :as route]
+            [selmer.parser                     :as parser]
+            [clojure.java.io                   :as io]
+            [klakes.server                     :as server]
+            [klakes.web.control.home           :as ctrl-home]
+            [klakes.web.control.content        :as ctrl-content]
+            [klakes.web.control.knowledge-base :as ctrl-knowledge-base]))
 
 (parser/set-resource-path!  (clojure.java.io/resource "html"))
-
-(defn home [request]
-  (parser/render-file "home.html" {}))
-
-(defn content [request]
-  (parser/render-file "content.html" {}))
 
 (defn quit [request]
   (server/stop)
@@ -19,9 +16,14 @@
 
 (defn routes []
   (url/routes
-    (url/GET "/"               request (home request))
-    (url/GET "/content/:label" request (content request))
-    (url/GET "/quit"           request (quit request))))
+    (url/GET  "/"            request 
+                             (ctrl-home/home request))
+    (url/GET  "/content/:id" {{id :id} :params} 
+                             (ctrl-content/content-view id))
+    (url/GET  "/quit"        request 
+                            (quit request))
+    (url/POST "/model/load"  {params :params} 
+                             (ctrl-knowledge-base/load-knowledge-model params))))
 
 (url/defroutes router
   (routes)
