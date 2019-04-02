@@ -11,9 +11,11 @@
     (not (<= 0 num-concepts))))
 
 (defn save [concept]
-  (println concept)
-  concept)
+  (do 
+    (println concept)
+    concept))
 
 (defn import-concepts [model]
   (let [concepts (model :concepts)]
-    (map save concepts)))
+    (map #(save %) concepts)
+    model))

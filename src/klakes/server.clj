@@ -1,6 +1,6 @@
 (ns klakes.server
   (:require [clojure.java.browse :refer [browse-url]]
-            [org.httpkit.server  :only  [run-server]]))
+            [org.httpkit.server  :refer [run-server]]))
 
 (defonce server (atom nil))
 
@@ -14,3 +14,5 @@
   (when-not (nil? @server)
     (@server :timeout 100)
     (reset! server nil)))
+
+(.addShutdownHook (Runtime/getRuntime) (Thread. stop))

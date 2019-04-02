@@ -1,4 +1,10 @@
 (ns klakes.model.triple)
 
+(defn save [triple]
+  (println triple)
+  triple)
+
 (defn import-triples [model]
-  (println "import triples"))
+  (let [triples (model :triples)]
+    (map #(save %) triples)
+    model))

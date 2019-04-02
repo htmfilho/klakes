@@ -12,5 +12,4 @@
   "Gets the file from the browser and save it for further use"
   [params]
   (let [model (deserialize-knowledge-model (params :model-file))]
-    (mdl-knowledge-base/import-model model)
-    (str "Ok")))
+    (str (mdl-knowledge-base/import-model model))))
