@@ -1,6 +1,6 @@
 (ns klakes.server
-  (:use [org.httpkit.server  :only  [run-server]])
-  (:require [clojure.java.browse :refer [browse-url]]))
+  (:require [clojure.java.browse :refer [browse-url]]
+            [org.httpkit.server  :only  [run-server]]))
 
 (defonce server (atom nil))
 
