@@ -10,6 +10,9 @@
   (let [num-concepts (:c (first (cache/run-query (concepts-exist-sqlvec))))]
     (not (<= 0 num-concepts))))
 
+(defn find-by-label [label]
+  (cache/run-query (find-by-label-sqlvec {:label label})))
+
 (defn save [concept]
   (do 
     (println concept)
