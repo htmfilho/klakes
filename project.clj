@@ -9,6 +9,7 @@
                  ; Web dependencies
                  [javax.servlet/servlet-api "2.5"   ]
                  [ring/ring-core            "1.6.3" ]
+                 [ring/ring-devel           "1.6.3" ]
                  [http-kit                  "2.3.0" ]                 
                  [compojure                 "1.6.1" ]
                  [selmer                    "1.12.6"]

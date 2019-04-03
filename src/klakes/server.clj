@@ -1,11 +1,13 @@
 (ns klakes.server
-  (:require [clojure.java.browse :refer [browse-url]]
-            [org.httpkit.server  :refer [run-server]]))
+  (:require [ring.middleware.reload :refer [wrap-reload]]
+            [clojure.java.browse    :refer [browse-url]]
+            [org.httpkit.server     :refer [run-server]]))
 
 (defonce server (atom nil))
 
-(defn start [handler port]
-  (reset! server (run-server handler {:port port}))
+(defn start [router port]
+  (reset! server (run-server (wrap-reload router) 
+                             {:port port}))
   (println "Klakes is available at http://localhost:8080. To stop it, type Ctrl+C.")
   (browse-url (str "http://localhost:" port)))
 
