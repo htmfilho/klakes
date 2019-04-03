@@ -14,9 +14,7 @@
   (cache/run-query (find-by-label-sqlvec {:label label})))
 
 (defn save [concept]
-  (do 
-    (println concept)
-    concept))
+  concept)
 
 (defn import-concepts [model]
   (let [concepts (model :concepts)]
