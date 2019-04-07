@@ -1,6 +1,7 @@
 (ns klakes.model.concept
-  (:require [hugsql.core  :as hugsql]
-            [klakes.cache :as cache]))
+  (:require [clojure.java.jdbc :as jdbc]
+            [hugsql.core       :as hugsql]
+            [klakes.cache      :as cache]))
 
 (hugsql/def-sqlvec-fns "klakes/model/sql/concept.sql")
 
@@ -13,10 +14,28 @@
 (defn find-by-label [label]
   (cache/run-query (find-by-label-sqlvec {:label label})))
 
-(defn save [concept]
-  concept)
+(defn insert
+  "Returns a map of fields persisted in the database."
+  [concept]
+  (let [concept (dissoc concept :id)]
+    (first (jdbc/insert! cache/db-spec :concept concept))
+    concept))
+
+(defn update
+  "Returns the number of records updated in the database."
+  [concept]
+    (let [concept (dissoc concept :id)]
+      (first (jdbc/update! cache/db-spec :concept concept ["label = ?" (:label concept)]))
+      concept))
+
+(defn save 
+  "If the object doesn't exist it returns the id of the recently persisted 
+   object. If the object exists it returns the id that comes with the object 
+   only if at least one object is updated or zero if no object is updated."
+  [concept]
+  (if (empty? (find-by-label (:label concept)))
+    (insert concept)
+    (update concept)))
 
 (defn import-concepts [model]
-  (let [concepts (model :concepts)]
-    (map #(save %) concepts)
-    model))
+  (map save (model :concepts)))

@@ -9,7 +9,6 @@
   (mdl-concept/concepts-exist?))
 
 (defn import-model [model]
-  (-> model
-      (mdl-concept/import-concepts)
-      (mdl-predicate/import-predicates)
-      (mdl-triple/import-triples)))
+  (mdl-concept/import-concepts model)
+  (mdl-predicate/import-predicates model)
+  (mdl-triple/import-triples model))
