@@ -5,16 +5,15 @@
 
 (defonce server (atom nil))
 
-(defn start [router port]
-  (reset! server (run-server (wrap-reload router) 
-                             {:port port}))
-  (println "Klakes is available at http://localhost:8080. To stop it, type Ctrl+C.")
-  (browse-url (str "http://localhost:" port)))
-
 (defn stop []
   (println "Shutting down ... Thanks for using Klakes!")
   (when-not (nil? @server)
     (@server :timeout 100)
     (reset! server nil)))
 
-(.addShutdownHook (Runtime/getRuntime) (Thread. stop))
+(defn start [router port]
+  (reset! server (run-server (wrap-reload router) 
+                             {:port port}))
+  (.addShutdownHook (Runtime/getRuntime) (Thread. stop))
+  (println "Klakes is available at http://localhost:8080. To stop it, type Ctrl+C.")
+  (browse-url (str "http://localhost:" port)))
