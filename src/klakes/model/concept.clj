@@ -14,19 +14,19 @@
 (defn find-by-label [label]
   (cache/run-query (find-by-label-sqlvec {:label label})))
 
-(defn insert
+(defn insert-it
   "Returns a map of fields persisted in the database."
   [concept]
-  (let [concept (dissoc concept :id)]
-    (first (jdbc/insert! cache/db-spec :concept concept))
-    concept))
+  (let [concept (dissoc concept :id)
+        id      (first (map val (first (jdbc/insert! cache/db-spec :concept concept))))]
+    (assoc concept :id id)))
 
-(defn update
+(defn update-it
   "Returns the number of records updated in the database."
   [concept]
-    (let [concept (dissoc concept :id)]
-      (first (jdbc/update! cache/db-spec :concept concept ["label = ?" (:label concept)]))
-      concept))
+  (let [concept (dissoc concept :id)]
+    (jdbc/update! cache/db-spec :concept concept ["label = ?" (:label concept)])
+    concept))
 
 (defn save 
   "If the object doesn't exist it returns the id of the recently persisted 
@@ -34,8 +34,8 @@
    only if at least one object is updated or zero if no object is updated."
   [concept]
   (if (empty? (find-by-label (:label concept)))
-    (insert concept)
-    (update concept)))
+    (insert-it concept)
+    (update-it concept)))
 
 (defn import-concepts [model]
-  (map save (model :concepts)))
+  (assoc model :concepts (map save (model :concepts))))
