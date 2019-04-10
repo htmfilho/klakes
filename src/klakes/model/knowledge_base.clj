@@ -12,5 +12,4 @@
   (-> model
     (mdl-concept/import-concepts)
     (mdl-predicate/import-predicates)
-    ;(mdl-triple/import-triples model)
-    ))
+    (mdl-triple/import-triples)))
