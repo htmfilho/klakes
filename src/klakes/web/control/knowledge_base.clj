@@ -1,5 +1,6 @@
 (ns klakes.web.control.knowledge-base
-  (:require [clojure.java.io             :as io]
+  (:require [ring.util.response          :refer [redirect]]
+            [clojure.java.io             :as io]
             [clojure.data.json           :as json]
             [klakes.model.knowledge-base :as mdl-knowledge-base]))
 
@@ -12,4 +13,5 @@
   "Gets the file from the browser and save it for further use"
   [params]
   (let [model (deserialize-knowledge-model (params :model-file))]
-    (str (mdl-knowledge-base/import-model model))))
+    (println (mdl-knowledge-base/import-model model))
+    (redirect "/")))

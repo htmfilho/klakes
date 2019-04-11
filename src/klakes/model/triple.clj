@@ -5,9 +5,7 @@
 
 (hugsql/def-sqlvec-fns "klakes/model/sql/triple.sql")
 
-(defn delete-all 
-  "Remove all triples from the database"
-  []
+(defn delete-all []
   (jdbc/execute! cache/db-spec (delete-all-sqlvec)))
 
 (defn save [triple]

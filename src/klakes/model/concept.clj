@@ -9,7 +9,7 @@
   "Return true if there is at least one concept in the database."
   []
   (let [num-concepts (:c (first (cache/run-query (concepts-exist-sqlvec))))]
-    (not (<= 0 num-concepts))))
+    (< 0 num-concepts)))
 
 (defn find-by-label [label]
   (cache/run-query (find-by-label-sqlvec {:label label})))
