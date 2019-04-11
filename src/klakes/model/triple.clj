@@ -15,6 +15,5 @@
   triple)
 
 (defn import-triples [model]
-  (println "Saving triples.")
   (delete-all)
-  (map save (model :triples)))
+  (assoc model :triples (map save (model :triples))))

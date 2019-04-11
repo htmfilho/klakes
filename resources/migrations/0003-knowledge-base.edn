@@ -1,9 +1,9 @@
 {:up   
   ["create table triple (
-    id        integer primary key autoincrement,
     subject   integer not null,
     predicate integer not null,
     object    integer not null,
+    constraint pk_triple primary key (subject, predicate, object),
     constraint fk_concept_subject foreign key (subject) references concept (id) on delete cascade,
     constraint fk_predicate_triple foreign key (predicate) references predicate (id) on delete cascade,
     constraint fk_concept_object foreign key (object) references concept (id) on delete cascade
