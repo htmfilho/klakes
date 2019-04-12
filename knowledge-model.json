@@ -137,86 +137,49 @@
             "object": "organization"
         },
         {
-            "subject": "business",
-            "predicate": "contain",
-            "object": "definition"
-        },
-        {
-            "subject": "business",
-            "predicate": "contain",
-            "object": "process"
-        },
-        {
-            "subject": "business",
-            "predicate": "contain",
-            "object": "rule"
-        },
-        {
-            "subject": "business",
-            "predicate": "contain",
-            "object": "case"
-        },
-        {
+            "parent": "business",
             "subject": "definition",
             "predicate": "compose",
             "object": "process"
         },
         {
+            "parent": "business",
             "subject": "process",
             "predicate": "is_detailed_by",
             "object": "rule"
         },
         {
+            "parent": "business",
             "subject": "rule",
             "predicate": "bound",
             "object": "case"
         },
         {
+            "parent": "business",
             "subject": "case",
             "predicate": "improve",
             "object": "definition"
         },
         {
-            "subject": "it",
-            "predicate": "contain",
-            "object": "technology"
-        },
-        {
-            "subject": "it",
-            "predicate": "contain",
-            "object": "platform"
-        },
-        {
-            "subject": "it",
-            "predicate": "contain",
-            "object": "design"
-        },
-        {
-            "subject": "it",
-            "predicate": "contain",
-            "object": "code"
-        },
-        {
-            "subject": "it",
-            "predicate": "contain",
-            "object": "runtime"
-        },
-        {
+            "parent": "it",
             "subject": "technology",
             "predicate": "enable",
             "object": "platform"
         },
         {
+            "parent": "it",
             "subject": "platform",
             "predicate": "enable",
             "object": "design"
         },
         {
+            "parent": "it",
             "subject": "design",
             "predicate": "enable",
             "object": "code"
         },
         {
+            "parent": "it",
             "subject": "code",
             "predicate": "enable",
             "object": "runtime"
