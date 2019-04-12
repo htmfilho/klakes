@@ -6,9 +6,9 @@
       <div id="knetwork"></div>
     {% endif %}
     <hr>
-    <form action="/model/load" method="POST" enctype="multipart/form-data">
+    <form class="form" action="/model/load" method="POST" enctype="multipart/form-data">
       <div class="form-group">
-        <label for="model-file">Model File</label>
+        <label for="model-file">Upload the model file to create or update the Knowledge Lakes:</label>
         <input type="file" name="model-file" id="model-file" class="form-control-file">
       </div>
       <input type="submit" value="Load" class="btn btn-primary">
