@@ -9,6 +9,12 @@
   [file]
   (json/read-str (slurp (:tempfile file)) :key-fn keyword))
 
+(defn vis-nodes [concepts]
+  (map #() concepts))
+
+(defn serialize-knowledge-model []
+  )
+
 (defn load-knowledge-model
   "Gets the file from the browser and save it for further use"
   [params]
