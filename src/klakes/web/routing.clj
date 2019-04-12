@@ -16,14 +16,16 @@
 
 (defn routes []
   (url/routes
-    (url/GET  "/"            request 
-                             (ctrl-home/home request))
-    (url/GET  "/content/:id" {{id :id} :params} 
-                             (ctrl-content/content-view id))
-    (url/GET  "/quit"        request 
-                            (quit request))
-    (url/POST "/model/load"  {params :params} 
-                             (ctrl-knowledge-base/load-knowledge-model params))))
+    (url/GET  "/"                request 
+                                 (ctrl-home/home request))
+    (url/GET  "/content/:id"     {{id :id} :params} 
+                                 (ctrl-content/content-view id))
+    (url/GET  "/quit"            request 
+                                 (quit request))
+    (url/GET  "/api/model/lakes" request
+                                 (ctrl-knowledge-base/serialize-knowledge-model request))
+    (url/POST "/model/load"      {params :params}
+                                 (ctrl-knowledge-base/load-knowledge-model params))))
 
 (url/defroutes router
   (routes)
