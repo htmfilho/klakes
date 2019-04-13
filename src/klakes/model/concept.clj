@@ -12,7 +12,7 @@
     (< 0 num-concepts)))
 
 (defn find-by-label [label]
-  (cache/run-query (find-by-label-sqlvec {:label label})))
+  (first (cache/run-query (find-by-label-sqlvec {:label label}))))
 
 (defn insert-it
   "Returns a map of fields persisted in the database."

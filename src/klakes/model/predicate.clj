@@ -6,7 +6,7 @@
 (hugsql/def-sqlvec-fns "klakes/model/sql/predicate.sql")
 
 (defn find-by-verb [verb]
-  (cache/run-query (find-by-verb-sqlvec {:verb verb})))
+  (first (cache/run-query (find-by-verb-sqlvec {:verb verb}))))
 
 (defn insert-it
   "Returns a map of fields persisted in the database."
