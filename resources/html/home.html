@@ -5,14 +5,18 @@
     {% if model-exists %}
       <div id="knetwork"></div>
     {% endif %}
-    <hr>
-    <form class="form" action="/model/load" method="POST" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="model-file">Upload the model file to create or update the Knowledge Lakes:</label>
-        <input type="file" name="model-file" id="model-file" class="form-control-file">
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <form class="form" action="/model/load" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="model-file">Upload the model to create or update the Knowledge Lakes:</label>
+            <input type="file" name="model-file" id="model-file" class="form-control-file">
+          </div>
+          <input type="submit" value="Load" class="btn btn-primary">
+        </form>
       </div>
-      <input type="submit" value="Load" class="btn btn-primary">
-    </form>
+    </div>
   </div>
 {% endblock %}
 
@@ -24,18 +28,10 @@
       .then(function(response) {
         return response.json();
       })
-      .then(function(lakes) {
-        var nodes = new vis.DataSet(lakes);
-        var edges = new vis.DataSet([
-          {from: 1, to: 11, arrows:'to', font: {align: 'top'}, label: 'enables'},
-          {from: 6, to: 11, arrows:'to', font: {align: 'top'}, label: 'enables'},
-          {from: 7, to: 11, arrows:'to', font: {align: 'top'}, label: 'evolves'},
-          {from: 8, to: 7, arrows:'to', font: {align: 'top'}, label: 'runs'}
-        ]);
-
-        var container = document.getElementById('knetwork');
-
-        // provide the data in the vis format
+      .then(function(model) {
+        var nodes = new vis.DataSet(model.concepts);
+        var edges = new vis.DataSet(model.predicates);
+                
         var data = {
           nodes: nodes,
           edges: edges
@@ -50,7 +46,8 @@
           }
         };
 
-        // initialize your network!
+        var container = document.getElementById('knetwork');
+        
         var network = new vis.Network(container, data, options);
 
         network.on("click", function (params) {

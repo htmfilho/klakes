@@ -12,6 +12,9 @@
   []
   (cache/run-query (find-lakes-sqlvec)))
 
+(defn find-by-subjects [subjects]
+  (cache/run-query (find-by-subjects-sqlvec {:subjects (map #(:id %) subjects)})))
+
 (defn delete-all []
   (jdbc/execute! cache/db-spec (delete-all-sqlvec)))
 

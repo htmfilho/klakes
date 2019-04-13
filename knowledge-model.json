@@ -27,7 +27,7 @@
         },
         {
             "label": "it",
-            "name": "Information Technology",
+            "name": "Technology",
             "definition": ""
         },
         {
@@ -74,34 +74,42 @@
     "predicates": [
         {
             "verb": "bound",
+            "name": "bounds",
             "influence": ""
         },
         {
             "verb": "compose",
+            "name": "composes",
             "influence": ""
         },
         {
             "verb": "define",
+            "name": "defines",
             "influence": ""
         },
         {
             "verb": "enable",
+            "name": "enables",
             "influence": ""
         },
         {
             "verb": "improve",
+            "name": "improves",
             "influence": ""
         },
         {
             "verb": "contain",
+            "name": "contains",
             "influence": ""
         },
         {
             "verb": "is_detailed_by",
+            "name": "is detailed by",
             "influence": ""
         },
         {
             "verb": "run",
+            "name": "runs",
             "influence": ""
         }
     ],

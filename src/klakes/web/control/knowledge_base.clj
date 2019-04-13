@@ -11,11 +11,20 @@
   (json/read-str (slurp (:tempfile file)) :key-fn keyword))
 
 (defn vis-nodes [concepts]
-  (map #(zipmap [:id :shape :label] [(:id %) "box" (:name %)]) concepts))
+  (map #(zipmap [:id :shape :label] 
+                [(:id %) "box" (:name %)]) 
+                concepts))
+
+(defn vis-edges [triples]
+  (map #(zipmap [:from :to :arrows :font :label] 
+                [(:subject %) (:object %) "to" {:align "top"} (:name %)]) 
+                triples))
 
 (defn serialize-knowledge-model [request]
-  (let [concepts (mdl-triple/find-lakes)]
-    (json/write-str (vis-nodes concepts))))
+  (let [concepts (mdl-triple/find-lakes)
+        predicates (mdl-triple/find-by-subjects concepts)]
+    (json/write-str {:concepts   (vis-nodes concepts)
+                     :predicates (vis-edges predicates)})))
 
 (defn load-knowledge-model
   "Gets the file from the browser and save it for further use"

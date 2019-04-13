@@ -1,6 +1,7 @@
 {:up   
   ["create table predicate (
     id          integer primary key autoincrement,
+    name        text    not null,
     verb        text    unique,
     influence   text
   )"]
