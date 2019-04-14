@@ -12,8 +12,12 @@
   []
   (cache/run-query (find-lakes-sqlvec)))
 
+(defn find-by-parent [parent-id]
+  (cache/run-query (find-by-parent-sqlvec {:parent parent-id})))
+
 (defn find-by-subjects [subjects]
-  (cache/run-query (find-by-subjects-sqlvec {:subjects (map #(:id %) subjects)})))
+  (cache/run-query 
+    (find-by-subjects-sqlvec {:subjects (map #(:id %) subjects)})))
 
 (defn delete-all []
   (jdbc/execute! cache/db-spec (delete-all-sqlvec)))

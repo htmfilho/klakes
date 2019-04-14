@@ -8,14 +8,14 @@
 (defn find-by-verb [verb]
   (first (cache/run-query (find-by-verb-sqlvec {:verb verb}))))
 
-(defn insert-it
+(defn insert-predicate
   "Returns a map of fields persisted in the database."
   [predicate]
   (let [predicate (dissoc predicate :id)
         id        (first (map val (first (jdbc/insert! cache/db-spec :predicate predicate))))]
     (assoc predicate :id id)))
 
-(defn update-it
+(defn update-predicate
   "Returns the number of records updated in the database."
   [predicate]
     (let [predicate (dissoc predicate :id)]
@@ -28,8 +28,8 @@
    only if at least one object is updated or zero if no object is updated."
   [predicate]
   (if (empty? (find-by-verb (:verb predicate)))
-    (insert-it predicate)
-    (update-it predicate)))
+    (insert-predicate predicate)
+    (update-predicate predicate)))
 
 (defn import-predicates [model]
   (assoc model :predicates (map save (model :predicates))))

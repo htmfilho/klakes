@@ -1,7 +1,8 @@
 (ns klakes.web.ctrl.knowledge-base
-  (:require [ring.util.response        :refer [redirect]]
-            [clojure.java.io           :as io]
+  (:require [clojure.java.io           :as io]
             [clojure.data.json         :as json]
+            [ring.util.response        :refer [redirect]]
+            [klakes.web.vis            :as vis]
             [klakes.mdl.triple         :as mdl-triple]
             [klakes.mdl.knowledge-base :as mdl-knowledge-base]))
 
@@ -10,21 +11,11 @@
   [file]
   (json/read-str (slurp (:tempfile file)) :key-fn keyword))
 
-(defn vis-nodes [concepts]
-  (map #(zipmap [:id :shape :label] 
-                [(:id %) "box" (:name %)]) 
-                concepts))
-
-(defn vis-edges [triples]
-  (map #(zipmap [:from :to :arrows :font :label] 
-                [(:subject %) (:object %) "to" {:align "top"} (:name %)]) 
-                triples))
-
-(defn serialize-knowledge-model [request]
+(defn lakes-model [request]
   (let [concepts (mdl-triple/find-lakes)
         predicates (mdl-triple/find-by-subjects concepts)]
-    (json/write-str {:concepts   (vis-nodes concepts)
-                     :predicates (vis-edges predicates)})))
+    (json/write-str {:concepts   (vis/concepts-to-nodes concepts)
+                     :predicates (vis/triples-to-edges predicates)})))
 
 (defn load-knowledge-model
   "Gets the file from the browser and save it for further use"

@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="content">
+    <h1>{{ concept.name }}</h1>
+    <p class="lead">{{ concept.definition }}</p>
+    <div id="knetwork"></div>
+    <br>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <small>Donec id elit non mi porta.</small>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+            </div>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>  
+{% endblock %}
+
+{% block page-scripts %}
+  {% script "/js/vis.min.js" %}
+  <script type="text/javascript">
+    
+    fetch('/api/model/concepts/{{ concept.id }}')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(model) {
+        var nodes = new vis.DataSet(model.concepts);
+        var edges = new vis.DataSet(model.predicates);
+                
+        var data = {
+          nodes: nodes,
+          edges: edges
+        };
+      
+        var options = {
+          nodes: {
+            shadow:true
+          },
+          edges: {
+            shadow:true
+          }
+        };
+
+        var container = document.getElementById('knetwork');
+        
+        var network = new vis.Network(container, data, options);
+
+        network.on("click", function (params) {
+          var id = this.getNodeAt(params.pointer.DOM);
+          if(id != undefined) {
+            window.location.href = '/concepts/' + id;
+          }
+        });
+      });
+  </script>
+{% endblock %}

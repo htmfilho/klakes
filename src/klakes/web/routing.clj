@@ -16,16 +16,24 @@
 
 (defn routes []
   (url/routes
-    (url/GET  "/"                request 
-                                 (ctrl-home/home request))
-    (url/GET  "/concept/:id"     {{id :id} :params} 
-                                 (ctrl-concept/concept-view id))
-    (url/GET  "/quit"            request 
-                                 (quit request))
-    (url/GET  "/api/model/lakes" request
-                                 (ctrl-knowledge-base/serialize-knowledge-model request))
-    (url/POST "/model/load"      {params :params}
-                                 (ctrl-knowledge-base/load-knowledge-model params))))
+    (url/GET  "/"
+              request 
+              (ctrl-home/home request))
+    (url/GET  "/concepts/:id{[0-9]+}"
+              {{id :id} :params} 
+              (ctrl-concept/concept-view id))
+    (url/GET  "/quit"
+              request 
+              (quit request))
+    (url/GET  "/api/model/lakes"
+              request
+              (ctrl-knowledge-base/lakes-model request))
+    (url/GET  "/api/model/concepts/:id{[0-9]+}"
+              {{id :id} :params}
+              (ctrl-concept/concept-model id))
+    (url/POST "/model/load"
+              {params :params}
+              (ctrl-knowledge-base/load-knowledge-model params))))
 
 (url/defroutes router
   (routes)

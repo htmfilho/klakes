@@ -11,7 +11,7 @@
   </head>
   <body>
       <!-- navbar -->
-      <nav class="navbar is-info">
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
           <div class="container">
               <div class="navbar-brand">
                   <a class="navbar-item" href="/" style="font-weight:bold;">Klakes</a>
@@ -30,10 +30,11 @@
       </nav>
 
       <section class="section">
-          <div class="container">
-              {% block content %}
-              {% endblock %}
-          </div>
+        <br>  
+        <div class="container">
+          {% block content %}
+          {% endblock %}
+        </div>
       </section>
     {% script "/js/jquery-3.3.1.slim.min.js" %}
     {% script "/js/bootstrap.bundle.min.js" %}
