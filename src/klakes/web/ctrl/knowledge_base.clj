@@ -1,9 +1,9 @@
-(ns klakes.web.control.knowledge-base
-  (:require [ring.util.response          :refer [redirect]]
-            [clojure.java.io             :as io]
-            [clojure.data.json           :as json]
-            [klakes.model.triple         :as mdl-triple]
-            [klakes.model.knowledge-base :as mdl-knowledge-base]))
+(ns klakes.web.ctrl.knowledge-base
+  (:require [ring.util.response        :refer [redirect]]
+            [clojure.java.io           :as io]
+            [clojure.data.json         :as json]
+            [klakes.mdl.triple         :as mdl-triple]
+            [klakes.mdl.knowledge-base :as mdl-knowledge-base]))
 
 (defn deserialize-knowledge-model
   "Reads the content of the file and transform it in data structures"

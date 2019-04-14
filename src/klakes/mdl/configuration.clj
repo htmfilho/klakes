@@ -1,8 +1,8 @@
-(ns klakes.model.configuration
+(ns klakes.mdl.configuration
   (:require [hugsql.core  :as hugsql]
             [klakes.cache :as cache]))
 
-(hugsql/def-sqlvec-fns "klakes/model/sql/configuration.sql")
+(hugsql/def-db-fns "klakes/mdl/sql/configuration.sql")
 
 (defonce config (atom {:confluence-url ""
                        :confluence-user ""

@@ -1,1 +1,0 @@
-(ns klakes.model.content)

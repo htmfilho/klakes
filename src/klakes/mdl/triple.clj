@@ -1,11 +1,11 @@
-(ns klakes.model.triple
-  (:require [clojure.java.jdbc      :as jdbc]
-            [hugsql.core            :as hugsql]
-            [klakes.cache           :as cache]
-            [klakes.model.concept   :as mdl-concept]
-            [klakes.model.predicate :as mdl-predicate]))
+(ns klakes.mdl.triple
+  (:require [clojure.java.jdbc    :as jdbc]
+            [hugsql.core          :as hugsql]
+            [klakes.cache         :as cache]
+            [klakes.mdl.concept   :as mdl-concept]
+            [klakes.mdl.predicate :as mdl-predicate]))
 
-(hugsql/def-sqlvec-fns "klakes/model/sql/triple.sql")
+(hugsql/def-sqlvec-fns "klakes/mdl/sql/triple.sql")
 
 (defn find-lakes 
   "Returns all subjects and objects that don't have parents in the triples"

@@ -1,9 +1,9 @@
-(ns klakes.model.concept
+(ns klakes.mdl.concept
   (:require [clojure.java.jdbc :as jdbc]
             [hugsql.core       :as hugsql]
             [klakes.cache      :as cache]))
 
-(hugsql/def-sqlvec-fns "klakes/model/sql/concept.sql")
+(hugsql/def-sqlvec-fns "klakes/mdl/sql/concept.sql")
 
 (defn concepts-exist?
   "Return true if there is at least one concept in the database."

@@ -1,9 +1,9 @@
-(ns klakes.model.predicate
+(ns klakes.mdl.predicate
   (:require [clojure.java.jdbc :as jdbc]
             [hugsql.core       :as hugsql]
             [klakes.cache      :as cache]))
 
-(hugsql/def-sqlvec-fns "klakes/model/sql/predicate.sql")
+(hugsql/def-sqlvec-fns "klakes/mdl/sql/predicate.sql")
 
 (defn find-by-verb [verb]
   (first (cache/run-query (find-by-verb-sqlvec {:verb verb}))))

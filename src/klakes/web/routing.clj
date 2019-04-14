@@ -1,12 +1,12 @@
 (ns klakes.web.routing
-  (:require [compojure.core                    :as url]
-            [compojure.route                   :as route]
-            [selmer.parser                     :as parser]
-            [clojure.java.io                   :as io]
-            [klakes.server                     :as server]
-            [klakes.web.control.home           :as ctrl-home]
-            [klakes.web.control.content        :as ctrl-content]
-            [klakes.web.control.knowledge-base :as ctrl-knowledge-base]))
+  (:require [compojure.core                 :as url]
+            [compojure.route                :as route]
+            [selmer.parser                  :as parser]
+            [clojure.java.io                :as io]
+            [klakes.server                  :as server]
+            [klakes.web.ctrl.home           :as ctrl-home]
+            [klakes.web.ctrl.concept        :as ctrl-concept]
+            [klakes.web.ctrl.knowledge-base :as ctrl-knowledge-base]))
 
 (parser/set-resource-path!  (clojure.java.io/resource "html"))
 
@@ -18,8 +18,8 @@
   (url/routes
     (url/GET  "/"                request 
                                  (ctrl-home/home request))
-    (url/GET  "/content/:id"     {{id :id} :params} 
-                                 (ctrl-content/content-view id))
+    (url/GET  "/concept/:id"     {{id :id} :params} 
+                                 (ctrl-concept/concept-view id))
     (url/GET  "/quit"            request 
                                  (quit request))
     (url/GET  "/api/model/lakes" request
