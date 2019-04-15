@@ -24,8 +24,8 @@
     (jdbc/update! cache/db-spec 
                   :content 
                   content 
-                  ["reference = ?" (:reference content)])
-    content))
+                  ["reference = ?" (:reference content)]))
+  content)
 
 (defn save [content]
   (when (content "content")
@@ -37,7 +37,16 @@
           existing-content (find-by-reference (:reference content))]
       (if (empty? existing-content)
         (insert-content content)
-        (update-content content)))))
+        (update-content (assoc content :id (:id existing-content)))))))
 
-(defn import-content [concept content]
-  (map save content))
+(defn delete-associations-to-concept [concept]
+  (jdbc/delete! cache/db-spec :concept_content ["concept = ?" (:id concept)]))
+
+(defn associate-to-concept [concept contents]
+  (delete-associations-to-concept concept)
+  (map #(jdbc/insert! cache/db-spec 
+                      :concept_content 
+                      {:concept (:id concept) :content %}) contents))
+
+(defn import-content [concept contents]
+  (associate-to-concept concept (map save contents)))
