@@ -1,11 +1,11 @@
 {:up   
   ["create table content (
-    id            integer primary key autoincrement,
-    reference     text    unique,
-    title         text    not null,
-    last_modified text,
-    sequence      integer not null,
-    url           text    not null
+    id        integer primary key autoincrement,
+    reference text    unique,
+    title     text    not null,
+    url       text    not null,
+    modified  text,
+    sequence  integer    
   )"]
  :down 
   ["drop table content"]}
