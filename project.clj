@@ -1,4 +1,4 @@
-(defproject klakes "0.1.0-SNAPSHOT"
+(defproject klakes "0.1.0"
   :description "Klakes (Knowledge Lakes) is a method of organizing knowledge in a consistent way."
   :url "klakes.github.io"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
