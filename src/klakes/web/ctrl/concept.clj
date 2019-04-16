@@ -13,7 +13,7 @@
     (mdl-content/import-content concept content)))
 
 (defn get-content [concept options]
-  (http/get (env :portal-search-url) options
+  (http/get (str (env :wiki-url) "/rest/api/search") options
     (fn [{:keys [status headers body error]}]
       (if error
         (println "Failed, exception is " error)
@@ -21,16 +21,15 @@
 
 (defn concept-view [id]
   (let [concept (mdl-concept/find-by-id id)
-        model-exists (mdl-triple/model-exists concept)
-        contents (mdl-content/find-by-concept concept)
         options {:timeout 120000
-                 :basic-auth [(env :portal-user) (env :portal-password)]
+                 :basic-auth [(env :wiki-user) (env :wiki-password)]
                  :query-params {:cql (str "label=" (:label concept))}
                  :headers {"Accept" "application/json"}}]
     (get-content concept options)
     (parser/render-file "concept.html" {:concept concept
-                                        :model-exists model-exists
-                                        :contents contents})))
+                                        :model-exists (mdl-triple/model-exists concept)
+                                        :contents (mdl-content/find-by-concept concept)
+                                        :portal-url (env :wiki-url)})))
 
 (defn concept-model [id]
   (let [concepts (mdl-triple/find-by-parent id)

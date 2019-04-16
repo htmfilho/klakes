@@ -1,4 +1,3 @@
-{:portal-user ""
- :portal-password ""
- :portal-url ""
- :portal-search-url ""}
+{:wiki-user ""
+ :wiki-password ""
+ :wiki-url ""}
