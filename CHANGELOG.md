@@ -14,6 +14,6 @@ All notable changes to this project will be documented in this file. This change
 - Shows the list of content from the wiki related to the concept.
 - Navigates to the page on the wiki when clicking on a content listed in the concept's page.
 - Reads wiki connectivity parameters from a config file.
-- Blog Post: [klakes.github.io/jekyll/update/2019/04/16/minimal-viable-product.html]
+- [Blog Post](http://www.hildeberto.com/klakes/jekyll/update/2019/04/16/minimal-viable-product.html)
 
 [Unreleased]: https://github.com/your-name/klakes/compare/0.1.0...HEAD
