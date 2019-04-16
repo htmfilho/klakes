@@ -2,8 +2,12 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
-### Changed
-- None.
+### Added
+- The configuration to access the wiki is available in a settings form.
+- The concept's page lists concepts in which the current concept is _object of_ and is _subject to_.
+- The concept's page shows the label associated with the concept.
+- A breadcrumb allows the user to navigate up in the hierarchy of models.
+- The list of content in the concept's page shows the date the content was last modified.
 
 ## 0.1.0 - 2019-04-16
 ### Added
