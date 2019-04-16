@@ -27,6 +27,7 @@
   :min-lein-version "2.0.0"
   :main ^:skip-aot klakes.app
   
-  :profiles {:uberjar {:aot :all
+  :profiles {:dev     {:resource-paths ["config/prod"]}
+             :uberjar {:aot :all
                        :uberjar-name "klakes.jar"
                        :resource-paths ["config/prod"]}})
