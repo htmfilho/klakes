@@ -1,6 +1,7 @@
 /target
 /classes
 /checkouts
+/config/prod/config.edn
 /.lein-*
 /.nrepl-port
 *.jar
@@ -10,6 +11,7 @@ pom.xml
 pom.xml.asc
 cache.db
 confluence.json
+content.edn
 bootstrap.css
 bootstrap.css.map
 bootstrap.min.css.map

@@ -4,6 +4,7 @@
     reference text    unique,
     title     text    not null,
     url       text    not null,
+    excerpt   text,
     modified  text,
     sequence  integer    
   )"]

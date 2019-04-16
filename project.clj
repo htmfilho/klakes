@@ -19,10 +19,14 @@
                  [org.clojure/java.jdbc     "0.7.0" ]
                  [org.xerial/sqlite-jdbc    "3.23.1"]
                  [com.layerware/hugsql      "0.4.9" ]
-                 [ragtime                   "0.8.0" ]]
+                 [ragtime                   "0.8.0" ]
+                 
+                 ; Extra dependencies
+                 [yogthos/config            "1.1.1" ]]
   
   :min-lein-version "2.0.0"
   :main ^:skip-aot klakes.app
   
   :profiles {:uberjar {:aot :all
-                       :uberjar-name "klakes.jar"}})
+                       :uberjar-name "klakes.jar"
+                       :resource-paths ["config/prod"]}})

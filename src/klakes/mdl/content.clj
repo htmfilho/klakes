@@ -11,6 +11,9 @@
 (defn find-by-reference [reference]
   (first (cache/run-query (find-by-reference-sqlvec {:reference reference}))))
 
+(defn find-by-concept [concept]
+  (cache/run-query (find-by-concept-sqlvec {:concept (:id concept)})))
+
 (defn insert-content [content]
   (let [content (dissoc content :id)
         id      (first (map val 
@@ -29,10 +32,11 @@
 
 (defn save [content]
   (when (content "content")
-    (let [content (zipmap [:reference :title :url :modified]
+    (let [content (zipmap [:reference :title :url :excerpt :modified]
                           [((content "content") "id")
                            (content "title")
                            (content "url")
+                           (content "excerpt")
                            (content "lastModified")])
           existing-content (find-by-reference (:reference content))]
       (if (empty? existing-content)
@@ -46,7 +50,9 @@
   (delete-associations-to-concept concept)
   (map #(jdbc/insert! cache/db-spec 
                       :concept_content 
-                      {:concept (:id concept) :content %}) contents))
+                      {:concept (:id concept) :content (:id %)}) contents))
 
 (defn import-content [concept contents]
-  (associate-to-concept concept (map save contents)))
+  (let [contents (filter #(some? %) (map save contents))]
+    (println contents)
+    (associate-to-concept concept contents)))
