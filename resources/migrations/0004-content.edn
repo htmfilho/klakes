@@ -1,9 +1,9 @@
 {:up   
   ["create table content (
     id        integer primary key autoincrement,
-    reference text    unique,
     title     text    not null,
     url       text    not null,
+    reference text,
     excerpt   text,
     modified  text,
     sequence  integer    

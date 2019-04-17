@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="content">
-    <h1>{{ concept.name }}</h1>
+    <h1>{{ concept.name }} <span class="badge badge-secondary">:{{ concept.label }}</span></h1>
     <p class="lead">{{ concept.definition }}</p>
     {% if model-exists %}
       <div id="knetwork"></div>
@@ -14,11 +14,11 @@
           {% for content in contents %}
             <a href="{{ portal-url }}{{ content.url }}" target="_blank" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ content.title }}</h5>
-                <small>3 days ago</small>
+                <h4 class="mb-1">{{ content.title }}</h4>
+                <small>{{ content.modified|subs:0:10 }}</small>
               </div>
               <p class="mb-1">{{ content.excerpt }}</p>
-              <small>Donec id elit non mi porta.</small>
+              <span class="badge badge-pill badge-secondary">{{ concept.label }}</span>
             </a>
           {% endfor %}
         </div>
@@ -27,11 +27,20 @@
         <div class="list-group">
           <a href="#" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
+              <h5 class="mb-1">{{ concept.name }} is influenced by</h5>
             </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <p class="mb-1"></p>
           </a>
         </div>
+        <br>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ concept.name }} influences</h5>
+              </div>
+              <p class="mb-1"></p>
+            </a>
+          </div>
       </div>
     </div>
   </div>  

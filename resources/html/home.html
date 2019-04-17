@@ -3,6 +3,7 @@
 {% block content %}
   <div class="content">
     {% if model-exists %}
+      <h2 for="knetwork">Knowledge Lakes</h2>
       <div id="knetwork"></div>
     {% endif %}
     <br>
@@ -10,7 +11,7 @@
       <div class="card-body">
         <form class="form" action="/model/load" method="POST" enctype="multipart/form-data">
           <div class="form-group">
-            <label for="model-file">Upload the model to create or update the Knowledge Lakes:</label>
+            <label for="model-file">Upload the model to create or update the Knowledge Lakes</label>
             <input type="file" name="model-file" id="model-file" class="form-control-file">
           </div>
           <input type="submit" value="Load" class="btn btn-primary">

@@ -7,5 +7,6 @@
 
 (defn -main [& [args]]
   (cache/migrate)
+  (cache/define-busy-timeout 30000)
   (let [router (handler/site #'routing/router)]
     (server/start router 3000)))

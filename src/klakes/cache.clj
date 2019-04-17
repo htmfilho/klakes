@@ -19,3 +19,6 @@
 
 (defn run-query [query]
   (jdbc/query db-spec query))
+
+(defn define-busy-timeout [timeout]
+  (run-query (str "pragma busy_timeout=" timeout)))
