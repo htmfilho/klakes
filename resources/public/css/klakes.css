@@ -1,3 +1,15 @@
+body {
+    font-family: 'Zilla Slab', sans-serif;
+}
+
+h1 {
+    font-family: 'Zilla Slab', cursive;
+}
+
+h4 {
+    font-family: 'Zilla Slab', sans-serif;
+}
+
 #knetwork {
     width: 1110px;
     height: 400px;
