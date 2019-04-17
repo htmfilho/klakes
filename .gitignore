@@ -6,9 +6,7 @@
 /.nrepl-port
 *.jar
 *.class
-profiles.clj
-pom.xml
-pom.xml.asc
+knowledge-model.json
 cache.db
 confluence.json
 content.edn
