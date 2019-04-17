@@ -29,6 +29,8 @@
     (parser/render-file "concept.html" {:concept concept
                                         :model-exists (mdl-triple/model-exists concept)
                                         :contents (mdl-content/find-by-concept concept)
+                                        :influenced (mdl-triple/find-subjects-by-object concept)
+                                        :influences (mdl-triple/find-objects-by-subject concept)
                                         :portal-url (env :wiki-url)})))
 
 (defn concept-model [id]

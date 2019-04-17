@@ -7,20 +7,26 @@
 
 (hugsql/def-sqlvec-fns "klakes/mdl/sql/triple.sql")
 
-(defn find-lakes
-  "Returns all subjects and objects that don't have parents in the triples"
-  []
+(defn find-lakes []
   (cache/run-query (find-lakes-sqlvec)))
 
 (defn find-by-parent [parent-id]
   (cache/run-query (find-by-parent-sqlvec {:parent parent-id})))
 
-(defn model-exists [concept]
-  (not (empty? (find-by-parent (:id concept)))))
-
 (defn find-by-subjects [subjects]
   (cache/run-query 
     (find-by-subjects-sqlvec {:subjects (map #(:id %) subjects)})))
+
+(defn find-objects-by-subject [subject]
+  (cache/run-query
+    (find-objects-by-subject-sqlvec {:subject (:id subject)})))
+
+(defn find-subjects-by-object [object]
+  (cache/run-query
+    (find-subjects-by-object-sqlvec {:object (:id object)})))
+
+(defn model-exists [concept]
+  (not (empty? (find-by-parent (:id concept)))))
 
 (defn delete-all []
   (jdbc/execute! cache/db-spec (delete-all-sqlvec)))

@@ -24,23 +24,31 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">{{ concept.name }} is influenced by</h5>
-            </div>
-            <p class="mb-1"></p>
-          </a>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mb-1">{{ concept.name }} is influenced by</h5>
+            <ul>
+            {% for object in influenced %}
+              <li><a href="/concepts/{{ object.id }}">{{ object.name }}</a></li>
+              {% empty %}
+                {{ concept.name }} doesn't suffer any influence.
+            {% endfor %}
+            </ul>
+          </div>
         </div>
         <br>
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ concept.name }} influences</h5>
-              </div>
-              <p class="mb-1"></p>
-            </a>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mb-1">{{ concept.name }} influences</h5>
+            <ul>
+            {% for subject in influences %}
+              <li><a href="/concepts/{{ subject.id }}">{{ subject.name }}</a></li>
+              {% empty %}
+                {{ concept.name }} doesn't influence other concepts.
+            {% endfor %}
+            </ul>
           </div>
+        </div>
       </div>
     </div>
   </div>  
