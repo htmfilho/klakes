@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This change
 - The concept's page shows the label associated with the concept.
 - A breadcrumb allows the user to navigate up in the hierarchy of models.
 - The list of content in the concept's page shows the date the content was last modified.
+- Shows the tags associated to the content in the list of contents.
 
 ## 0.1.0 - 2019-04-16
 ### Added
