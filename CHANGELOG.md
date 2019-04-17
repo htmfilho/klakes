@@ -20,4 +20,5 @@ All notable changes to this project will be documented in this file. This change
 - Reads wiki connectivity parameters from a config file.
 - [Blog Post](http://www.hildeberto.com/klakes/jekyll/update/2019/04/16/minimal-viable-product.html)
 
-[Unreleased]: https://github.com/your-name/klakes/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/htmfilho/klakes/compare/0.1.0...HEAD
+[0.2.0]: https://github.com/htmfilho/klakes/compare/0.1.0...0.2.0
