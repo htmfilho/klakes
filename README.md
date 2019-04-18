@@ -10,6 +10,10 @@ To use it:
 
     $ java -jar klakes.jar
 
+## References
+
+- Confluence Web API: https://docs.atlassian.com/ConfluenceServer/rest/(version)/
+
 ## License
 
 Copyright © 2019 Hildeberto Mendonca
