@@ -8,6 +8,7 @@
       <div id="knetwork"></div>
     {% endif %}
     <br>
+    <h3>Content</h3>
     <div class="row">
       <div class="col-md-8">
         <div class="list-group">
@@ -20,6 +21,9 @@
               <p class="mb-1">{{ content.excerpt }}</p>
               <span class="badge badge-pill badge-secondary">{{ concept.label }}</span>
             </a>
+          {% empty %}
+            <p>No content available for {{ concept.name }}. To see content here, go to the wiki and add the label 
+            <span class="badge badge-secondary">{{ concept.label }}</span> to the appropriate pages.</p>
           {% endfor %}
         </div>
       </div>

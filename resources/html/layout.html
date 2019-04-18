@@ -11,32 +11,38 @@
     <link href="https://fonts.googleapis.com/css?family=Arapey|Zilla+Slab" rel="stylesheet">
   </head>
   <body>
-      <!-- navbar -->
-      <nav class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
-          <div class="container">
-              <div class="navbar-brand">
-                  <a class="navbar-item" href="/" style="font-weight:bold;">Klakes</a>
-                  <span class="navbar-burger burger" data-target="nav-menu">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                  </span>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img src="/logo.png" width="30" height="30" alt=""> Klakes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto"></ul>
+          <ul class="navbar-nav my-2 my-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://www.hildeberto.com/klakes/" target="_blank">About</a>
+                <div class="dropdown-divider"></div>
+                <a href="/quit" class="dropdown-item">Quit</a>
               </div>
-              <div id="nav-menu" class="navbar-menu">
-                  <div class="navbar-end">
-                      <a href="/quit" class="navbar-item{% ifequal page "home.html" %} is-active{%endifequal%}">Quit</a>
-                  </div>
-              </div>
-          </div>
-      </nav>
-
-      <section class="section">
-        <br>  
-        <div class="container">
-          {% block content %}
-          {% endblock %}
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </nav>
+    
+    <section class="section">
+      <br>  
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </section>
     {% script "/js/jquery-3.3.1.slim.min.js" %}
     {% script "/js/bootstrap.bundle.min.js" %}
     {% block page-scripts %}
