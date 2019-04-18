@@ -3,11 +3,10 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 ### Added
-- The configuration to access the wiki is available in a settings form.
-- The concept's page lists concepts in which the current concept is _object of_ and is _subject to_.
+- The concept's page lists concepts in which the current concept is _influenced by_ and _influences_ other concepts.
 - The concept's page shows the label associated with the concept.
-- A breadcrumb allows the user to navigate up in the hierarchy of models.
 - The list of content in the concept's page shows the date the content was last modified.
+- A breadcrumb allows the user to navigate up in the hierarchy of models.
 - Shows the tags associated to the content in the list of contents.
 
 ## 0.1.0 - 2019-04-16
