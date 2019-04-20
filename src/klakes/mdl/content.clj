@@ -14,6 +14,9 @@
 (defn find-by-concept [concept]
   (cache/run-query (find-by-concept-sqlvec {:concept (:id concept)})))
 
+(defn find-labels-frequence []
+  (cache/run-query (find-labels-frequence-sqlvec)))
+
 (defn insert-content [content]
   (let [content (dissoc content :id)
         id      (first (map val 
