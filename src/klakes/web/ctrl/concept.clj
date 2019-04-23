@@ -1,5 +1,6 @@
 (ns klakes.web.ctrl.concept
-  (:require [selmer.parser      :as parser]
+  (:require [clojure.data.json  :as json]
+            [selmer.parser      :as parser]
             [config.core        :refer [env]]
             [klakes.web.vis     :as vis]
             [klakes.wiki        :as wiki]
@@ -9,7 +10,7 @@
 
 (defn concept-view [id]
   (let [concept (mdl-concept/find-by-id id)]
-    (mdl-content/import-content concept (wiki/get-content (:label concept)))
+    (wiki/get-content concept mdl-content/import-content)
     (parser/render-file "concept.html" {:concept concept
                                         :model-exists (mdl-triple/model-exists concept)
                                         :contents (mdl-content/find-by-concept concept)
