@@ -57,5 +57,4 @@
 
 (defn import-content [concept contents]
   (let [contents (filter #(some? %) (map save contents))]
-    (println contents)
     (associate-to-concept concept contents)))
