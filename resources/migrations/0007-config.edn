@@ -1,4 +1,0 @@
-{:up   
-  ["insert into configuration (key, value) values ('confluence-url',''), ('confluence-user',''), ('confluence-password',''), ('confluence-timeout','120000');"]
- :down 
-  ["delete from configuration where key = 'confluence-url' or key = 'confluence-user' or key = 'confluence-password' or key = 'confluence-timeout';"]}

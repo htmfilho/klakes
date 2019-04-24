@@ -2,17 +2,25 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
+
 ### Added
+- A breadcrumb allows the user to navigate up in the hierarchy of models.
+- Shows the tags associated to the content in the list of contents.
+- The concept's page shows the parent of the concept on the right menu.
+
+## [0.2.0] - 2019-04-23
+
+### Added
+
 - The concept's page lists concepts in which the current concept is _influenced by_ and _influences_ other concepts.
 - The concept's page shows the label associated with the concept.
 - The list of content in the concept's page shows the date the content was last modified.
-
-- A breadcrumb allows the user to navigate up in the hierarchy of models.
-- Shows the tags associated to the content in the list of contents.
-- A new page shows a cloud of tags where the font size of each tag is propotional to the tag's frequence of use.
-- The concept's page shows the parent of the concept on the right menu.
+- A page /tags shows a cloud of tags where the font size of each tag is propotional to the volume of associated content.
+- Using a logging library to investigate issues.
+- Wiki authentication parameters are stored in memory and discarded after logout.
 
 ## 0.1.0 - 2019-04-16
+
 ### Added
 - Imports a knowledge model from an external json file. The file can be imported multiple times to update the knowledge model.
 - Shows the knowledge model as a dynamic graph organized in multiple levels.
@@ -23,5 +31,5 @@ All notable changes to this project will be documented in this file. This change
 - Reads wiki connectivity parameters from a config file.
 - [Blog Post](http://www.hildeberto.com/klakes/jekyll/update/2019/04/16/minimal-viable-product.html)
 
-[Unreleased]: https://github.com/htmfilho/klakes/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/htmfilho/klakes/compare/0.2.0...HEAD
 [0.2.0]: https://github.com/htmfilho/klakes/compare/0.1.0...0.2.0
