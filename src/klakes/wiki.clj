@@ -1,5 +1,6 @@
 (ns klakes.wiki
   (:require [clojure.data.json  :as json]
+            [taoensso.timbre    :as log]
             [org.httpkit.client :as http]
             [config.core        :refer [env]]))
 
@@ -12,5 +13,5 @@
               options
               (fn [{:keys [status headers body error]}]
                 (if error
-                  (println "Failed, exception is " error)
-                  (println (callback concept ((json/read-str body) "results"))))))))
+                  (log/error error)
+                  (log/info (callback concept ((json/read-str body) "results"))))))))

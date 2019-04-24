@@ -12,8 +12,7 @@
 (parser/set-resource-path!  (clojure.java.io/resource "html"))
 
 (defn quit [request]
-  (server/stop)
-  (str "Bye!"))
+  (server/stop))
 
 (defn routes []
   (url/routes
