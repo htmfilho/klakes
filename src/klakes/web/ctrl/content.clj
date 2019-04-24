@@ -3,14 +3,16 @@
             [klakes.mdl.content :as mdl-content]))
 
 (defn create-ranges [frequences font-sizes]
-  (let [minimum       (apply min frequences)
-        maximum       (apply max frequences)
-        num-sizes     (count font-sizes)]
-    (partition 2 1 
-               (sort (conj (range minimum 
-                                  maximum 
-                                  (int (/ maximum num-sizes)))
-                           maximum)))))
+  (if (empty? frequences)
+    frequences
+    (let [minimum       (apply min frequences)
+          maximum       (apply max frequences)
+          num-sizes     (count font-sizes)]
+      (partition 2 1 
+                (sort (conj (range minimum 
+                                   maximum 
+                                   (int (/ maximum num-sizes)))
+                            maximum))))))
 
 (defn size-ranges [frequences]
   (let [font-sizes (take (inc (count frequences)) (range 10 72 2))]
