@@ -3,9 +3,7 @@
             [klakes.mdl.predicate :as mdl-predicate]
             [klakes.mdl.triple    :as mdl-triple]))
 
-(defn model-exists?
-  "Returns true if all conditions that indicates that a model exists also return true."
-  [] 
+(defn model-exists? []
   (mdl-concept/concepts-exist?))
 
 (defn import-model [model]
