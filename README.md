@@ -55,11 +55,59 @@ done. Now, you are all set.
 
 ### Navigating on The Knowledge Lakes
 
+A triple is the relationship between two concepts linked by a predicate.
+
 ### Tagging Content on the Wiki
 
 ### Retrieving Content from the Wiki
 
+To retrieve information from the wiki while running in the desktop, Klakes uses 
+your personal Wiki's credentials. These are asked only once and kept in memory 
+while the application is running, then discarded in the shutdown. An 
+authentication form appears when Klakes intends to access the Wiki's API but it 
+doesn't have your credentials yet.
+
+If Klakes is deployed on the server, which is a more protected environment, the 
+configuration file can be used to keep the credentials. It will prevent the 
+authentication form appearing to the end user. Make sure Klakes is accessible 
+only in the network of the organization.
+
 ## Creating a Knowledge Model
+
+During the [configuration](#configuration) of Klakes you have loaded the 
+knowledge model of your organization into the application. The `json` file 
+contains data defined in [JSON][3] (JavaScript Object Notation) format, which is
+simple to define and read. The file is organized in 3 parts: a list of concepts, 
+a list of predicates, and list of triples. These lists are alfabetically ordered
+and it is important to keep them ordered when adding more elements. To add a new
+concept, use the following structure:
+
+    {
+      "label": "business",
+      "name": "Business",
+      "definition": ""
+    }
+
+*label* is the identification of the concept in the wiki. 
+name:
+definition:
+
+
+    {
+      "verb": "bound",
+      "name": "bounds",
+      "influence": ""
+    }
+
+verb, name, influence.
+
+    {
+      "subject": "business",
+      "predicate": "define",
+      "object": "product"
+    }
+
+subject, predicate, object
 
 ## License
 
@@ -78,3 +126,4 @@ at https://www.gnu.org/software/classpath/license.html.
 
 [1]: http://localhost:3000/lakes
 [2]: https://www.java.com/en/download/manual.jsp
+[3]: https://json.org

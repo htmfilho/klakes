@@ -120,31 +120,6 @@
             "object": "product"
         },
         {
-            "subject": "it",
-            "predicate": "define",
-            "object": "product"
-        },
-        {
-            "subject": "lifecycle",
-            "predicate": "improve",
-            "object": "product"
-        },
-        {
-            "subject": "organization",
-            "predicate": "run",
-            "object": "lifecycle"
-        },
-        {
-            "subject": "it",
-            "predicate": "run",
-            "object": "lifecycle"
-        },
-        {
-            "subject": "it",
-            "predicate": "run",
-            "object": "organization"
-        },
-        {
             "parent": "business",
             "subject": "definition",
             "predicate": "compose",
@@ -169,6 +144,21 @@
             "object": "definition"
         },
         {
+            "subject": "it",
+            "predicate": "define",
+            "object": "product"
+        },
+        {
+            "subject": "it",
+            "predicate": "run",
+            "object": "lifecycle"
+        },
+        {
+            "subject": "it",
+            "predicate": "run",
+            "object": "organization"
+        },
+        {
             "parent": "it",
             "subject": "technology",
             "predicate": "enable",
@@ -191,6 +181,16 @@
             "subject": "code",
             "predicate": "enable",
             "object": "runtime"
+        },
+        {
+            "subject": "lifecycle",
+            "predicate": "improve",
+            "object": "product"
+        },
+        {
+            "subject": "organization",
+            "predicate": "run",
+            "object": "lifecycle"
         }
     ]
 }
