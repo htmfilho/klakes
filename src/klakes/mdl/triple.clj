@@ -25,6 +25,15 @@
   (cache/run-query
     (find-subjects-by-object-sqlvec {:object (:id object)})))
 
+;(defn find-ancestors [id]
+;  (reverse 
+;    (loop [concept (find-by-id id)
+;           path []]
+;      (if (nil? (:parent concept))
+;        (conj path concept)
+;        (let [parent (get-it profile-id (:parent folder))]
+;          (recur parent (conj path folder)))))))
+
 (defn model-exists [concept]
   (not (empty? (find-by-parent (:id concept)))))
 

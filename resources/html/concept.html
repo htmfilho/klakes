@@ -12,19 +12,41 @@
     <div class="row">
       <div class="col-md-8">
         <div class="list-group">
-          {% for content in contents %}
-            <a href="{{ portal-url }}{{ content.url }}" target="_blank" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h4 class="mb-1">{{ content.title }}</h4>
-                <small>{{ content.modified|subs:0:10 }}</small>
+          {% if session %}
+            {% for content in contents %}
+              <a href="{{ portal-url }}{{ content.url }}" target="_blank" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                  <h4 class="mb-1">{{ content.title }}</h4>
+                  <small>{{ content.modified|subs:0:10 }}</small>
+                </div>
+                <p class="mb-1">{{ content.excerpt }}</p>
+                <span class="badge badge-pill badge-secondary">{{ concept.label }}</span>
+              </a>
+            {% empty %}
+              <p>No content available for {{ concept.name }}. To see content here, go to the wiki and add the label 
+              <span class="badge badge-secondary">{{ concept.label }}</span> to the appropriate pages.</p>
+            {% endfor %}
+          {% else %}
+            <form>
+              <p>In order to retrieve information from the wiki, Klakes uses your Wiki's credentials. 
+                 These are asked only once and kept in memory while the application is running, then 
+                 discarded in the shutdown.</p>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
-              <p class="mb-1">{{ content.excerpt }}</p>
-              <span class="badge badge-pill badge-secondary">{{ concept.label }}</span>
-            </a>
-          {% empty %}
-            <p>No content available for {{ concept.name }}. To see content here, go to the wiki and add the label 
-            <span class="badge badge-secondary">{{ concept.label }}</span> to the appropriate pages.</p>
-          {% endfor %}
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          {% endif %}
         </div>
       </div>
       <div class="col-md-4">

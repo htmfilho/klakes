@@ -23,8 +23,8 @@
               request 
               (ctrl-home/home request))
     (url/GET  "/concepts/:id{[0-9]+}"
-              {{id :id} :params} 
-              (ctrl-concept/concept-view id))
+              {{id :id} :params session :session}
+              (ctrl-concept/concept-view id session))
     (url/GET  "/tags"
               request 
               (ctrl-content/tags request))

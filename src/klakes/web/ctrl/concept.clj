@@ -8,7 +8,8 @@
             [klakes.mdl.triple  :as mdl-triple]
             [klakes.mdl.content :as mdl-content]))
 
-(defn concept-view [id]
+(defn concept-view [id session]
+  (println session)
   (let [concept (mdl-concept/find-by-id id)]
     (wiki/get-content concept mdl-content/import-content)
     (parser/render-file "concept.html" {:concept concept
@@ -16,7 +17,8 @@
                                         :contents (mdl-content/find-by-concept concept)
                                         :influenced (mdl-triple/find-subjects-by-object concept)
                                         :influences (mdl-triple/find-objects-by-subject concept)
-                                        :portal-url (env :wiki-url)})))
+                                        :portal-url (env :wiki-url)
+                                        :session (not (empty? session))})))
 
 (defn concept-model [id]
   (let [concepts (mdl-triple/find-by-parent id)
