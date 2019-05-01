@@ -22,7 +22,7 @@
                  [ragtime                   "0.8.0" ]
                  
                  ; Extra dependencies
-                 [yogthos/config            "1.1.1" ]
+                 [yogthos/config            "1.1.1" ] ; https://github.com/yogthos/config
                  [com.taoensso/timbre       "4.10.0"]]
   
   :min-lein-version "2.0.0"

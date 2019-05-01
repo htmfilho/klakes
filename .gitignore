@@ -8,6 +8,7 @@
 *.class
 knowledge-model.json
 cache.db
+config.edn
 confluence.json
 content.edn
 bootstrap.css

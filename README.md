@@ -1,4 +1,4 @@
-# Klakes
+# Why Klakes?
 
 Klakes stands for Knowledge Lakes. It targets organizations interested in mapping their knowledge in consistent "lakes" of information.
 
@@ -83,6 +83,10 @@ To add a new triple, make sure you already have all the concepts and verb needed
     }
 
 **subject** is a label representing an existing concept that is related to another concept through a predicate. **predicate** is the verb that qualifies the influence a concept has over another. **object** is a label representing another existing concept.
+
+## References
+
+- Ring Sessions: https://github.com/ring-clojure/ring
 
 ## License
 
