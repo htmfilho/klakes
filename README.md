@@ -74,13 +74,16 @@ only in the network of the organization.
 
 ## Creating a Knowledge Model
 
-During the [configuration](#configuration) of Klakes you have loaded the 
-knowledge model of your organization into the application. The `json` file 
-contains data defined in [JSON][3] (JavaScript Object Notation) format, which is
-simple to define and read. The file is organized in 3 parts: a list of concepts, 
-a list of predicates, and list of triples. These lists are alfabetically ordered
-and it is important to keep them ordered when adding more elements. To add a new
-concept, use the following structure:
+During the [configuration](#configuration) of Klakes you loaded the knowledge 
+model of your organization into the application. The `json` file contains data 
+defined in [JSON][3] (JavaScript Object Notation) format, which is simple to 
+write and read. The file is organized in 3 parts: a list of concepts, a list of 
+predicates, and list of triples. These lists are alfabetically ordered and it is 
+important to keep them that way when adding more elements.
+
+### Concept
+
+To add a new concept, use the following structure:
 
     {
       "label": "business",
@@ -88,10 +91,14 @@ concept, use the following structure:
       "definition": ""
     }
 
-*label* is the identification of the concept in the wiki. 
-name:
-definition:
+**label** is the identification of the concept in the wiki. Pages related to 
+the concept are tagged with this label. **name** is used to show the concept on 
+the user interface because sometimes the label is not human friendly. 
+**definition** explains what is the concept, so users can properly apply them.
 
+### Predicate
+
+To add a new predicate, use the following structure:
 
     {
       "verb": "bound",
@@ -99,7 +106,15 @@ definition:
       "influence": ""
     }
 
-verb, name, influence.
+**verb** qualifies the influence a concept has over another. It can be active 
+(i.e. build) or passive (i.e. is_built_by). **name** is used to show the verb on 
+the user interface because sometimes the verb is not human friendly. 
+**influence** is an explanation of the influence represented by the verb.
+
+### Triple
+
+To add a new triple, make sure you already have all the concepts and verb needed, 
+so you can use the following structure:
 
     {
       "subject": "business",
@@ -107,7 +122,10 @@ verb, name, influence.
       "object": "product"
     }
 
-subject, predicate, object
+**subject** is a label representing an existing concept that is related to 
+another concept through a predicate. **predicate** is the verb that qualifies 
+the influence a concept has over another. **object** is a label representing
+another existing concept.
 
 ## License
 
