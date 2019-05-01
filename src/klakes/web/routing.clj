@@ -7,7 +7,8 @@
             [klakes.web.ctrl.home           :as ctrl-home]
             [klakes.web.ctrl.concept        :as ctrl-concept]
             [klakes.web.ctrl.content        :as ctrl-content]
-            [klakes.web.ctrl.knowledge-base :as ctrl-knowledge-base]))
+            [klakes.web.ctrl.knowledge-base :as ctrl-knowledge-base]
+            [klakes.web.ctrl.wiki           :as ctrl-wiki]))
 
 (parser/set-resource-path!  (clojure.java.io/resource "html"))
 
@@ -40,7 +41,10 @@
     
     (url/POST "/model/load"
               {params :params}
-              (ctrl-knowledge-base/load-knowledge-model params))))
+              (ctrl-knowledge-base/load-knowledge-model params))
+    (url/POST "/wiki/auth"
+              {params :params session :session}
+              (ctrl-wiki/auth params session))))
 
 (url/defroutes router
   (routes)

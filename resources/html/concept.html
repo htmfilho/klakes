@@ -27,23 +27,20 @@
               <span class="badge badge-secondary">{{ concept.label }}</span> to the appropriate pages.</p>
             {% endfor %}
           {% else %}
-            <form>
+            <form action="/wiki/auth" method="POST">
               <p>In order to retrieve information from the wiki, Klakes uses your Wiki's credentials. 
                  These are asked only once and kept in memory while the application is running, then 
                  discarded in the shutdown.</p>
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="user">User</label>
+                <input type="text" class="form-control" id="user" name="user" placeholder="Wiki's user">
+                <small class="form-text text-muted">Inform your wiki's username.</small>
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
               </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div>
+              <input type="hidden" name="id" value="{{ concept.id }}">
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           {% endif %}
