@@ -3,15 +3,14 @@
             [selmer.parser      :as parser]
             [config.core        :refer [env]]
             [klakes.web.vis     :as vis]
-            [klakes.wiki        :as wiki]
+            [klakes.mdl.wiki    :as mdl-wiki]
             [klakes.mdl.concept :as mdl-concept]
             [klakes.mdl.triple  :as mdl-triple]
             [klakes.mdl.content :as mdl-content]))
 
 (defn concept-view [id session]
-  (println session)
   (let [concept (mdl-concept/find-by-id id)]
-    (wiki/get-content concept mdl-content/import-content)
+    (mdl-wiki/get-content concept mdl-content/import-content session)
     (parser/render-file "concept.html" {:concept concept
                                         :model-exists (mdl-triple/model-exists concept)
                                         :contents (mdl-content/find-by-concept concept)

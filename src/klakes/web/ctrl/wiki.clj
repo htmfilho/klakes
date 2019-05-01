@@ -3,5 +3,7 @@
             [klakes.web.ctrl.concept :as ctrl-concept]))
 
 (defn auth [params session]
-  (-> (res/response (ctrl-concept/concept-view (:id params) session))
-      (assoc :session session)))
+  (let [session (assoc session :user (:user params) 
+                               :password (:password params))]
+    (-> (res/response (ctrl-concept/concept-view (:id params) session))
+        (assoc :session session))))
