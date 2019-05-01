@@ -9,4 +9,4 @@
   (cache/migrate)
   (cache/define-busy-timeout 30000)
   (let [router (handler/site #'routing/router)]
-    (server/start router 3000)))
+    (server/start router 8000)))
