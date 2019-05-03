@@ -2,16 +2,18 @@
   (:require [clojure.data.json  :as json]
             [taoensso.timbre    :as log]
             [org.httpkit.client :as http]
-            [config.core        :refer [env]]))
+            [klakes.config      :as config]))
 
 (defn get-content [concept callback credentials]
-  (if (nil? (:wiki-url env))
+  (if (or (empty? (:wiki-url (config/get-config)))
+          (nil? (:user credentials))
+          (nil? (:password credentials)))
     nil
     (let [options {:timeout 120000
                    :basic-auth [(:user credentials) (:password credentials)]
                    :query-params {:cql (str "label=" (:label concept))}
                    :headers {"Accept" "application/json"}}]
-      (http/get (str (env :wiki-url) "/rest/api/search")
+      (http/get (str (:wiki-url (config/get-config)) "/rest/api/search")
                 options
                 (fn [{:keys [status headers body error]}]
                   (if error

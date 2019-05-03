@@ -22,13 +22,10 @@
                  [ragtime                   "0.8.0" ]
                  
                  ; Extra dependencies
-                 [yogthos/config            "1.1.1" ] ; https://github.com/yogthos/config
                  [com.taoensso/timbre       "4.10.0"]]
   
   :min-lein-version "2.0.0"
   :main ^:skip-aot klakes.app
   
-  :profiles {:dev     {:resource-paths ["config/prod"]}
-             :uberjar {:aot :all
-                       :uberjar-name "klakes.jar"
-                       :resource-paths ["config/prod"]}})
+  :profiles {:uberjar {:aot :all
+                       :uberjar-name "klakes.jar"}})
