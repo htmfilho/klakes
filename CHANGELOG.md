@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## [Unreleased]
+
+### Added
+- A breadcrumb allows the user to navigate up in the hierarchy of models.
+- Shows the tags associated to the content in the list of contents.
+- The concept's page shows the parent of the concept on the right menu.
+
 ## [0.2.0] - 2019-05-02
 
 ### Added
