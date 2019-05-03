@@ -1,18 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-## [Unreleased]
-
-### Added
-- A breadcrumb allows the user to navigate up in the hierarchy of models.
-- Shows the tags associated to the content in the list of contents.
-- The concept's page shows the parent of the concept on the right menu.
-
-## [0.2.0] - 2019-04-23
+## [0.2.0] - 2019-05-02
 
 ### Added
 
-- The concept's page lists concepts in which the current concept is _influenced by_ and _influences_ other concepts.
+- The concept's page shows other concepts in which the current concept is _influenced by_ and _influences_ other concepts.
 - The concept's page shows the label associated with the concept.
 - The list of content in the concept's page shows the date the content was last modified.
 - A page /tags shows a cloud of tags where the font size of each tag is propotional to the volume of associated content.
