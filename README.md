@@ -34,23 +34,25 @@ You don't need to restart Klakes to have it working once the configuration is do
 
 ### Navigating on The Knowledge Lakes
 
-A triple is the relationship between two concepts linked by a predicate.
+To do.
 
 ### Tagging Content on the Wiki
+
+To do.
 
 ### Retrieving Content from the Wiki
 
 To retrieve information from the wiki while running in the desktop, Klakes uses your personal Wiki's credentials. These are asked only once and kept in memory while the application is running, then discarded in the shutdown. An authentication form appears when Klakes intends to access the Wiki's API but it doesn't have your credentials yet.
 
-If Klakes is deployed on the server, which is a more protected environment, the configuration file can be used to keep the credentials. It will prevent the authentication form appearing to the end user. Make sure Klakes is accessible only in the network of the organization.
+![Wiki Credentials](wiki-credentials.png)
 
 ## Creating a Knowledge Model
 
-During the [configuration](#configuration) of Klakes you loaded the knowledge model of your organization into the application. The `json` file contains data defined in [JSON][3] (JavaScript Object Notation) format, which is simple to write and read. The file is organized in 3 parts: a list of concepts, a list of predicates, and list of triples. These lists are alfabetically ordered and it is important to keep them that way when adding more elements.
+During the [configuration](#configuration) of Klakes you loaded the knowledge model of your organization into the application. The `json` file contains data defined in [JSON][3] (JavaScript Object Notation) format, which is simple to write and read. The file is organized in 3 parts: a list of concepts, a list of predicates, and list of triples. These lists are alphabetically ordered and it is important to keep them that way when adding more elements.
 
 ### Concept
 
-To add a new concept, use the following structure:
+Add a new concept using the following structure:
 
     {
       "label": "business",
@@ -62,7 +64,7 @@ To add a new concept, use the following structure:
 
 ### Predicate
 
-To add a new predicate, use the following structure:
+Add a new predicate using the following structure:
 
     {
       "verb": "bound",

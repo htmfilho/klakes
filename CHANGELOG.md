@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. This change
 - A breadcrumb allows the user to navigate up in the hierarchy of models.
 - Shows the tags associated to the content in the list of contents.
 - The concept's page shows the parent of the concept on the right menu.
+- Uses the configuration file to keep the credentials and prevent the authentication form appearing to the end user.
 
 ## [0.2.0] - 2019-05-02
 
