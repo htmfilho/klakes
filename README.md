@@ -1,6 +1,10 @@
 # Why Klakes?
 
-Klakes stands for Knowledge Lakes. It targets organizations interested in mapping their knowledge in consistent "lakes" of information.
+Each individual has a mental model, a particular way of making sense of the world. Two people can observe the same event and describe it differently, because they have looked at different details and made different interpretations. This natural characteristic of human kind makes extremely hard for organizations to build a common understanding of what they do, build and sell among all employees.
+
+Klakes stands for Knowledge Lakes and was designed to solve this problem. It targets organizations interested in mapping their knowledge in consistent "lakes" of information.
+
+Why is Klakes open source? Because this application is easy to build, but the knowledge lakes are not. Well, it might became easy one day when this approach of organizing information is widely spread.
 
 ## Installation
 
