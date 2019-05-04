@@ -14,7 +14,7 @@
         <div class="list-group">
           {% if session %}
             {% for content in contents %}
-              <a href="{{ portal-url }}{{ content.url }}" target="_blank" class="list-group-item list-group-item-action">
+              <a href="{{ wiki-url }}{{ content.url }}" target="_blank" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                   <h4 class="mb-1">{{ content.title }}</h4>
                   <small>{{ content.modified|subs:0:10 }}</small>
@@ -23,7 +23,7 @@
                 <span class="badge badge-pill badge-secondary">{{ concept.label }}</span>
               </a>
             {% empty %}
-              <p>No content available for {{ concept.name }}. To see content here, go to the wiki and add the label 
+              <p>No content available for {{ concept.name }}. To see content here, go to the <a href="{{ wiki-url }}" target="_blank">wiki</a> and add the label 
               <span class="badge badge-secondary">{{ concept.label }}</span> to the appropriate pages.</p>
             {% endfor %}
           {% else %}
@@ -32,6 +32,14 @@
                  These are asked only once and kept in memory while the application is running, then 
                  discarded in the shutdown.</p>
               <div class="form-group">
+                <label for="user">URL</label>
+                {% if wiki-url %}
+                  <p><a href="{{ wiki-url }}" target="_blank">{{ wiki-url }}</a></p>
+                {% else %}
+                  <p style="color: red;">Wiki's URL not defined. Please, inform the URL it in the config.edn file.</p>
+                {% endif %}
+              </div>
+              <div class="form-group">
                 <label for="user">User</label>
                 <input type="text" class="form-control" id="user" name="user" placeholder="Wiki's user">
                 <small class="form-text text-muted">Inform your wiki's username.</small>
@@ -39,6 +47,7 @@
               <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <small class="form-text text-muted">Inform your wiki's password.</small>
               </div>
               <input type="hidden" name="id" value="{{ concept.id }}">
               <button type="submit" class="btn btn-primary">Submit</button>

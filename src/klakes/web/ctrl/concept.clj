@@ -1,7 +1,7 @@
 (ns klakes.web.ctrl.concept
   (:require [clojure.data.json  :as json]
             [selmer.parser      :as parser]
-            [config.core        :refer [env]]
+            [klakes.config      :as config]
             [klakes.web.vis     :as vis]
             [klakes.mdl.wiki    :as mdl-wiki]
             [klakes.mdl.concept :as mdl-concept]
@@ -16,8 +16,8 @@
                                         :contents (mdl-content/find-by-concept concept)
                                         :influenced (mdl-triple/find-subjects-by-object concept)
                                         :influences (mdl-triple/find-objects-by-subject concept)
-                                        :portal-url (env :wiki-url)
-                                        :session (not (empty? session))})))
+                                        :session (not (empty? session))
+                                        :wiki-url (:wiki-url (config/get-config))})))
 
 (defn concept-model [id]
   (let [concepts (mdl-triple/find-by-parent id)

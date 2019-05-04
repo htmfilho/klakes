@@ -14,7 +14,7 @@ Klakes is an application that runs on top of the Java Virtual Machine (JVM). Thi
 
 ### Execution
 
-To run Klakes, download the latest version of the file `klakes.jar` from the [release page](https://github.com/htmfilho/klakes/releases). Depending on your platform and how Java is installed and configured, you can double-click on the file `klakes.jar` to run it, otherwise open a terminal window and use the following command:
+To run Klakes, download the latest version of the file `klakes.jar` from the [release page][4]. Depending on your platform and how Java is installed and configured, you can double-click on the file `klakes.jar` to run it, otherwise open a terminal window and use the following command:
 
     $ java -jar klakes.jar
 
@@ -26,11 +26,11 @@ When the application is up and running, it opens a tab in your default web brows
 
 At first glance, Klakes looks boring because it is not ready to use yet. It is still necessary to load the knowledge model and to configure the access to the wiki. The following steps help you to achieve that:
 
-1. **Load the Knowledge Model**: visit the Knowledge Model page using the top menu. Browse your desktop for the knowledge model file -- with the extension    `.json` -- and load it into Klakes. When the load is complete a graph showing   the relationships between the lakes appears.
+1. **Load the Knowledge Model**: visit the Knowledge Model page using the top menu. Browse your desktop for the knowledge model file -- with the extension `.json` -- and load it into Klakes. When the load is complete a graph showing the relationships between the lakes appears. An [example of knowledge model][5] can be obtained from the project repository.
 
 2. **Configure the connection to the Wiki**: when the application runs for the first time, it generates the file `config.edn` in the same folder where `klakes.jar` was executed. In that file, set the variable `:wiki-url` with the URL of Wiki:
 
-   `{:wiki-url "https://wiki.mycompany.com"}`
+    `{:wiki-url "https://wiki.mycompany.com"}`
 
 You don't need to restart Klakes to have it working once the configuration is done. Now, you are all set.
 
@@ -38,23 +38,25 @@ You don't need to restart Klakes to have it working once the configuration is do
 
 ### Navigating on The Knowledge Lakes
 
-A triple is the relationship between two concepts linked by a predicate.
+To do.
 
 ### Tagging Content on the Wiki
+
+To do.
 
 ### Retrieving Content from the Wiki
 
 To retrieve information from the wiki while running in the desktop, Klakes uses your personal Wiki's credentials. These are asked only once and kept in memory while the application is running, then discarded in the shutdown. An authentication form appears when Klakes intends to access the Wiki's API but it doesn't have your credentials yet.
 
-If Klakes is deployed on the server, which is a more protected environment, the configuration file can be used to keep the credentials. It will prevent the authentication form appearing to the end user. Make sure Klakes is accessible only in the network of the organization.
+![Wiki Credentials](wiki-credentials.png)
 
 ## Creating a Knowledge Model
 
-During the [configuration](#configuration) of Klakes you loaded the knowledge model of your organization into the application. The `json` file contains data defined in [JSON][3] (JavaScript Object Notation) format, which is simple to write and read. The file is organized in 3 parts: a list of concepts, a list of predicates, and list of triples. These lists are alfabetically ordered and it is important to keep them that way when adding more elements.
+During the [configuration](#configuration) of Klakes you loaded the knowledge model of your organization into the application. The `json` file contains data defined in [JSON][3] (JavaScript Object Notation) format, which is simple to write and read. The file is organized in 3 parts: a list of concepts, a list of predicates, and list of triples. These lists are alphabetically ordered and it is important to keep them that way when adding more elements.
 
 ### Concept
 
-To add a new concept, use the following structure:
+Add a new concept using the following structure:
 
     {
       "label": "business",
@@ -66,7 +68,7 @@ To add a new concept, use the following structure:
 
 ### Predicate
 
-To add a new predicate, use the following structure:
+Add a new predicate using the following structure:
 
     {
       "verb": "bound",
@@ -103,3 +105,5 @@ This Source Code may also be made available under the following Secondary Licens
 [1]: http://localhost:3000/lakes
 [2]: https://www.java.com/en/download/manual.jsp
 [3]: https://json.org
+[4]: https://github.com/htmfilho/klakes/releases
+[5]: https://github.com/htmfilho/klakes/blob/master/knowledge-model.json.example

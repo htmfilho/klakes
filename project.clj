@@ -1,4 +1,4 @@
-(defproject klakes "0.2.0-SNAPSHOT"
+(defproject klakes "0.3.0-SNAPSHOT"
   :description "Klakes (Knowledge Lakes) is a method of organizing knowledge in a consistent way."
   :url "http://www.hildeberto.com/klakes/"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
@@ -22,13 +22,10 @@
                  [ragtime                   "0.8.0" ]
                  
                  ; Extra dependencies
-                 [yogthos/config            "1.1.1" ] ; https://github.com/yogthos/config
                  [com.taoensso/timbre       "4.10.0"]]
   
   :min-lein-version "2.0.0"
   :main ^:skip-aot klakes.app
   
-  :profiles {:dev     {:resource-paths ["config/prod"]}
-             :uberjar {:aot :all
-                       :uberjar-name "klakes.jar"
-                       :resource-paths ["config/prod"]}})
+  :profiles {:uberjar {:aot :all
+                       :uberjar-name "klakes.jar"}})
