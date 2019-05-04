@@ -10,7 +10,7 @@ Klakes is an application that runs on top of the Java Virtual Machine (JVM). Thi
 
 ### Execution
 
-To run Klakes, download the latest version of the file `klakes.jar` from the [release page](https://github.com/htmfilho/klakes/releases). Depending on your platform and how Java is installed and configured, you can double-click on the file `klakes.jar` to run it, otherwise open a terminal window and use the following command:
+To run Klakes, download the latest version of the file `klakes.jar` from the [release page][4]. Depending on your platform and how Java is installed and configured, you can double-click on the file `klakes.jar` to run it, otherwise open a terminal window and use the following command:
 
     $ java -jar klakes.jar
 
@@ -22,11 +22,11 @@ When the application is up and running, it opens a tab in your default web brows
 
 At first glance, Klakes looks boring because it is not ready to use yet. It is still necessary to load the knowledge model and to configure the access to the wiki. The following steps help you to achieve that:
 
-1. **Load the Knowledge Model**: visit the Knowledge Model page using the top menu. Browse your desktop for the knowledge model file -- with the extension    `.json` -- and load it into Klakes. When the load is complete a graph showing   the relationships between the lakes appears.
+1. **Load the Knowledge Model**: visit the Knowledge Model page using the top menu. Browse your desktop for the knowledge model file -- with the extension `.json` -- and load it into Klakes. When the load is complete a graph showing the relationships between the lakes appears. An [example of knowledge model][5] can be obtained from the project repository.
 
 2. **Configure the connection to the Wiki**: when the application runs for the first time, it generates the file `config.edn` in the same folder where `klakes.jar` was executed. In that file, set the variable `:wiki-url` with the URL of Wiki:
 
-   `{:wiki-url "https://wiki.mycompany.com"}`
+    `{:wiki-url "https://wiki.mycompany.com"}`
 
 You don't need to restart Klakes to have it working once the configuration is done. Now, you are all set.
 
@@ -101,3 +101,5 @@ This Source Code may also be made available under the following Secondary Licens
 [1]: http://localhost:3000/lakes
 [2]: https://www.java.com/en/download/manual.jsp
 [3]: https://json.org
+[4]: https://github.com/htmfilho/klakes/releases
+[5]: https://github.com/htmfilho/klakes/blob/master/knowledge-model.json.example
