@@ -1,6 +1,8 @@
 # Why Klakes?
 
-Klakes stands for Knowledge Lakes. It targets organizations interested in mapping their knowledge in consistent "lakes" of information.
+Each individual has a mental model, a particular way of making sense of the world. Two people can observe the same event and describe it differently, because they have looked at different details and made different interpretations. This natural characteristic of humankind makes extremely hard for organizations to build a common understanding of what they do, build and sell among all employees.
+
+Klakes stands for Knowledge Lakes and was designed to solve this problem. It targets organizations interested in mapping their knowledge in consistent "lakes" of information.
 
 ## Installation
 
@@ -34,7 +36,7 @@ You don't need to restart Klakes to have it working once the configuration is do
 
 ### Navigating on The Knowledge Lakes
 
-To do.
+The knowledge model represents knowledge in several abstraction levels. The first level contains the knowledge lakes, an overview of all knowledge areas of the organization.  Each node in th
 
 ### Tagging Content on the Wiki
 
@@ -79,12 +81,13 @@ Add a new predicate using the following structure:
 To add a new triple, make sure you already have all the concepts and verb needed, so you can use the following structure:
 
     {
-      "subject": "business",
-      "predicate": "define",
-      "object": "product"
+      "parent": "business",
+      "subject": "definition",
+      "predicate": "compose",
+      "object": "process"
     }
 
-**subject** is a label representing an existing concept that is related to another concept through a predicate. **predicate** is the verb that qualifies the influence a concept has over another. **object** is a label representing another existing concept.
+**parent** is a concept's label that is part of a upper level in the knowledge model. **subject** is a label representing an existing concept that is related to another concept through a predicate. **predicate** is the verb that qualifies the influence a concept has over another. **object** is a label representing another existing concept.
 
 ## References
 
