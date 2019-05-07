@@ -4,6 +4,8 @@ Each individual has a mental model, a particular way of making sense of the worl
 
 Klakes stands for Knowledge Lakes and was designed to solve this problem. It targets organizations interested in mapping their knowledge in consistent "lakes" of information.
 
+The knowledge model is a simplification of an _Ontology_, a term Information Technology borrowed from Philosophy to represent an explicit, formal specification of a shared conceptualization. It basically means that all contributors must have a consensus about the knowledge model. Nothing can be imposed, everything must be agreed.
+
 ## Installation
 
 ### Requirements
@@ -34,9 +36,15 @@ You don't need to restart Klakes to have it working once the configuration is do
 
 ## Usage
 
-### Navigating on The Knowledge Lakes
+### Navigating in The Knowledge Lakes
 
-The knowledge model represents knowledge in several abstraction levels. The first level contains the knowledge lakes, an overview of all knowledge areas of the organization.  Each node in th
+The knowledge model represents knowledge in several abstraction levels. The first level contains interconected lakes, giving an overview of all knowledge areas of the organization. This level is the first to be shown on the application and from where all navigation starts.
+
+![Lakes](lakes.png)
+
+When clicking on a lake, the user navigates to a second level where the lake is described and possibly decomposed into concepts. Lakes and concepts are conceptually the same, but we like to call the concepts in the first level as "lakes".
+
+![concepts](it-concepts.png)
 
 ### Tagging Content on the Wiki
 
@@ -48,7 +56,7 @@ To retrieve information from the wiki while running in the desktop, Klakes uses 
     
 ![Wiki Credentials](wiki-credentials.png)
 
-## Creating a Knowledge Model
+## Creating a Knowledge Model File
 
 During the [configuration](#configuration) of Klakes you loaded the knowledge model of your organization into the application. The `json` file contains data defined in [JSON][3] (JavaScript Object Notation) format, which is simple to write and read. The file is organized in 3 parts: a list of concepts, a list of predicates, and list of triples. These lists are alphabetically ordered and it is important to keep them that way when adding more elements.
 
@@ -90,6 +98,8 @@ To add a new triple, make sure you already have all the concepts and verb needed
 **parent** is a concept's label that is part of a upper level in the knowledge model. **subject** is a label representing an existing concept that is related to another concept through a predicate. **predicate** is the verb that qualifies the influence a concept has over another. **object** is a label representing another existing concept.
 
 ## References
+
+### Technical References
 
 - Ring Sessions: https://github.com/ring-clojure/ring
 
