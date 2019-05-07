@@ -38,13 +38,15 @@ You don't need to restart Klakes to have it working once the configuration is do
 
 ### Navigating in The Knowledge Lakes
 
-The knowledge model represents knowledge in several abstraction levels. The first level contains interconected lakes, giving an overview of all knowledge areas of the organization. This level is the first to be shown on the application and from where all navigation starts.
+The knowledge model represents knowledge in several abstraction levels. The first level contains interconected lakes, giving an overview of all knowledge areas of the organization. This level is the first to be shown to the user and from where all navigation starts.
 
 ![Lakes](lakes.png)
 
-When clicking on a lake, the user navigates to a second level where the lake is described and possibly decomposed into concepts. Lakes and concepts are conceptually the same, but we like to call the concepts in the first level as "lakes".
+When clicking on a lake, the user navigates to a second level where the lake is described with concepts. Lakes and concepts are conceptually the same, but we like to call "lakes" the top-level concepts. In this particular case, we clicked on the **Info. Technology** lake and got the concepts below.
 
 ![concepts](it-concepts.png)
+
+The concept is also clicable and can be described with other concepts. Notice that concepts describe other concepts with any form of network representation. They can be flows, cycles, trees and even complex graphs.
 
 ### Tagging Content on the Wiki
 
