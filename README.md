@@ -48,9 +48,11 @@ When clicking on a lake, the user navigates to a second level where the lake is 
 
 The concept is also clicable and can be described with other concepts. Notice that concepts describe other concepts with any form of network representation. They can be flows, cycles, trees and even complex graphs.
 
-### Tagging Content on the Wiki
+### Labeling Content on the Wiki
 
-To do.
+Each concept has a label and that's exactly what is used to identify content on the wiki. Klakes relies on that to present the content according to the knowledge model of the organization.
+
+![Labeling](labeling.png)
 
 ### Retrieving Content from the Wiki
 
